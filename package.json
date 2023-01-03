@@ -1,0 +1,26 @@
+{
+  "name": "nodejs-project",
+  "version": "1.0.0",
+  "description": "NodeJS-Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaehoonV/NodeJS-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaehoonV/NodeJS-Project/issues"
+  },
+  "homepage": "https://github.com/jaehoonV/NodeJS-Project#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1",
+    "pug": "^3.0.2"
+  }
+}
