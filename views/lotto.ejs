@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>lotto</title>
     <link rel="stylesheet" href="styles/index.css">
+    <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="./script/index_script.js"></script>
 </head>
 <body>
     <div style="margin: 0 auto; width: 800px;">
@@ -44,128 +46,264 @@
                 <span><%= obj.NUM_CNT %>회</span>
             <% } %>
         </div>
-        <table class="table2">
-            <th>회차</th>
-            <th>번호</th>
-            <th>번호</th>
-            <th>번호</th>
-            <th>번호</th>
-            <th>번호</th>
-            <th>번호</th>
-            <th>보너스번호</th>
-            <th>1등 당첨금</th>
-            <th>1등 당첨자수</th>
-            <th>2등 당첨금</th>
-            <th>2등 당첨자수</th>
-            <th>일자</th>
-         <% for(var obj of results_lo){ %>
-            <% if(obj.PRIZE1 > 2500000000 && obj.PRIZE1 < 5000000000){ %>
-                <tr class="prize25up">
-            <% } else if(obj.PRIZE1 > 5000000000){ %>
-                <tr class="prize50up">
-            <% } else { %>
-                <tr>
+
+        <h3>Above average</h3>
+        <div class="div_box1">
+            <% for(var obj of results_lo_avg_up){ %>
+                <% if(obj.NUM <= 10) { %>
+                    <input class='ball10 ball' value=<%= obj.NUM %> disabled>
+                <% } else if(obj.NUM <= 20) { %>
+                    <input class='ball20 ball' value=<%= obj.NUM %> disabled>
+                <% } else if(obj.NUM <= 30) { %>
+                    <input class='ball30 ball' value=<%= obj.NUM %> disabled>
+                <% } else if(obj.NUM <= 40) { %>
+                    <input class='ball40 ball' value=<%= obj.NUM %> disabled>
+                <% } else { %>
+                    <input class='ball50 ball' value=<%= obj.NUM %> disabled>
+                <% } %>
+                <span><%= obj.NUM_CNT %>회</span>
             <% } %>
-            <td class="td_w35"><%= obj.ROUND %></td>
-            <td class="td_w35">
-                <% if(obj.NUM1 <= 10) { %>
-                    <input class='ball10 ball' value=<%= obj.NUM1 %> disabled>
-                <% } else if(obj.NUM1 <= 20) { %>
-                    <input class='ball20 ball' value=<%= obj.NUM1 %> disabled>
-                <% } else if(obj.NUM1 <= 30) { %>
-                    <input class='ball30 ball' value=<%= obj.NUM1 %> disabled>
-                <% } else if(obj.NUM1 <= 40) { %>
-                    <input class='ball40 ball' value=<%= obj.NUM1 %> disabled>
+        </div>
+        <h3>Above 25%</h3>
+        <div class="div_box1">
+            <% for(var obj of results_lo_top25){ %>
+                <% if(obj.NUM <= 10) { %>
+                    <input class='ball10 ball' value=<%= obj.NUM %> disabled>
+                <% } else if(obj.NUM <= 20) { %>
+                    <input class='ball20 ball' value=<%= obj.NUM %> disabled>
+                <% } else if(obj.NUM <= 30) { %>
+                    <input class='ball30 ball' value=<%= obj.NUM %> disabled>
+                <% } else if(obj.NUM <= 40) { %>
+                    <input class='ball40 ball' value=<%= obj.NUM %> disabled>
                 <% } else { %>
-                    <input class='ball50 ball' value=<%= obj.NUM1 %> disabled>
+                    <input class='ball50 ball' value=<%= obj.NUM %> disabled>
                 <% } %>
-            </td>
-            <td class="td_w35">
-                <% if(obj.NUM2 <= 10) { %>
-                    <input class='ball10 ball' value=<%= obj.NUM2 %> disabled>
-                <% } else if(obj.NUM2 <= 20) { %>
-                    <input class='ball20 ball' value=<%= obj.NUM2 %> disabled>
-                <% } else if(obj.NUM2 <= 30) { %>
-                    <input class='ball30 ball' value=<%= obj.NUM2 %> disabled>
-                <% } else if(obj.NUM2 <= 40) { %>
-                    <input class='ball40 ball' value=<%= obj.NUM2 %> disabled>
+                <span><%= obj.NUM_CNT %>회</span>
+            <% } %>
+        </div>
+        <h3>Below average</h3>
+        <div class="div_box1">
+            <% for(var obj of results_lo_avg_down){ %>
+                <% if(obj.NUM <= 10) { %>
+                    <input class='ball10 ball' value=<%= obj.NUM %> disabled>
+                <% } else if(obj.NUM <= 20) { %>
+                    <input class='ball20 ball' value=<%= obj.NUM %> disabled>
+                <% } else if(obj.NUM <= 30) { %>
+                    <input class='ball30 ball' value=<%= obj.NUM %> disabled>
+                <% } else if(obj.NUM <= 40) { %>
+                    <input class='ball40 ball' value=<%= obj.NUM %> disabled>
                 <% } else { %>
-                    <input class='ball50 ball' value=<%= obj.NUM2 %> disabled>
+                    <input class='ball50 ball' value=<%= obj.NUM %> disabled>
                 <% } %>
-            </td>
-            <td class="td_w35">
-                <% if(obj.NUM3 <= 10) { %>
-                    <input class='ball10 ball' value=<%= obj.NUM3 %> disabled>
-                <% } else if(obj.NUM3 <= 20) { %>
-                    <input class='ball20 ball' value=<%= obj.NUM3 %> disabled>
-                <% } else if(obj.NUM3 <= 30) { %>
-                    <input class='ball30 ball' value=<%= obj.NUM3 %> disabled>
-                <% } else if(obj.NUM3 <= 40) { %>
-                    <input class='ball40 ball' value=<%= obj.NUM3 %> disabled>
+                <span><%= obj.NUM_CNT %>회</span>
+            <% } %>
+        </div>
+        <h3>Below 25%</h3>
+        <div class="div_box1">
+            <% for(var obj of results_lo_bottom25){ %>
+                <% if(obj.NUM <= 10) { %>
+                    <input class='ball10 ball' value=<%= obj.NUM %> disabled>
+                <% } else if(obj.NUM <= 20) { %>
+                    <input class='ball20 ball' value=<%= obj.NUM %> disabled>
+                <% } else if(obj.NUM <= 30) { %>
+                    <input class='ball30 ball' value=<%= obj.NUM %> disabled>
+                <% } else if(obj.NUM <= 40) { %>
+                    <input class='ball40 ball' value=<%= obj.NUM %> disabled>
                 <% } else { %>
-                    <input class='ball50 ball' value=<%= obj.NUM3 %> disabled>
+                    <input class='ball50 ball' value=<%= obj.NUM %> disabled>
                 <% } %>
-            </td>
-            <td class="td_w35">
-                <% if(obj.NUM4 <= 10) { %>
-                    <input class='ball10 ball' value=<%= obj.NUM4 %> disabled>
-                <% } else if(obj.NUM4 <= 20) { %>
-                    <input class='ball20 ball' value=<%= obj.NUM4 %> disabled>
-                <% } else if(obj.NUM4 <= 30) { %>
-                    <input class='ball30 ball' value=<%= obj.NUM4 %> disabled>
-                <% } else if(obj.NUM4 <= 40) { %>
-                    <input class='ball40 ball' value=<%= obj.NUM4 %> disabled>
+                <span><%= obj.NUM_CNT %>회</span>
+            <% } %>
+        </div>
+
+        <div>
+            <form action="/save" method="POST">
+                <div class="form-group">
+                    <label>회차</label>
+                    <input type="text" class="form-control" name="round" />
+                </div>
+                <div class="form-group">
+                    <label>num1</label>
+                    <input type="text" class="form-control" name="num1" />
+                </div>
+                <div class="form-group">
+                    <label>num2</label>
+                    <input type="text" class="form-control" name="num2" />
+                </div>
+                <div class="form-group">
+                    <label>num3</label>
+                    <input type="text" class="form-control" name="num3" />
+                </div>
+                <div class="form-group">
+                    <label>num4</label>
+                    <input type="text" class="form-control" name="num4" />
+                </div>
+                <div class="form-group">
+                    <label>num5</label>
+                    <input type="text" class="form-control" name="num5" />
+                </div>
+                <div class="form-group">
+                    <label>num6</label>
+                    <input type="text" class="form-control" name="num6" />
+                </div>
+                <div class="form-group">
+                    <label>numB</label>
+                    <input type="text" class="form-control" name="numB" />
+                </div>
+                <div class="form-group">
+                    <label>prize1</label>
+                    <input type="text" class="form-control" name="prize1" />
+                </div>
+                <div class="form-group">
+                    <label>prize1cnt</label>
+                    <input type="text" class="form-control" name="prize1cnt" />
+                </div>
+                <div class="form-group">
+                    <label>prize2</label>
+                    <input type="text" class="form-control" name="prize2" />
+                </div>
+                <div class="form-group">
+                    <label>prize2cnt</label>
+                    <input type="text" class="form-control" name="prize2cnt" />
+                </div>
+                <div class="form-group">
+                    <label>round_date</label>
+                    <input type="text" class="form-control" name="round_date" />
+                </div>
+                <div class="form-group">
+                    <label>regid</label>
+                    <input type="text" class="form-control" name="regid" />
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        
+        <div><button onclick="history_toggle()" class="button_css" style="margin-bottom: 10px;">기록</button></div>
+
+        <div id="history" style="display: none;">
+            <table class="table2">
+                <th>회차</th>
+                <th>번호</th>
+                <th>번호</th>
+                <th>번호</th>
+                <th>번호</th>
+                <th>번호</th>
+                <th>번호</th>
+                <th>보너스번호</th>
+                <th>1등 당첨금</th>
+                <th>1등 당첨자수</th>
+                <th>2등 당첨금</th>
+                <th>2등 당첨자수</th>
+                <th>일자</th>
+            <% for(var obj of results_lo){ %>
+                <% if(obj.PRIZE1 > 2500000000 && obj.PRIZE1 < 5000000000){ %>
+                    <tr class="prize25up">
+                <% } else if(obj.PRIZE1 > 5000000000){ %>
+                    <tr class="prize50up">
                 <% } else { %>
-                    <input class='ball50 ball' value=<%= obj.NUM4 %> disabled>
+                    <tr>
                 <% } %>
-            </td>
-            <td class="td_w35">
-                <% if(obj.NUM5 <= 10) { %>
-                    <input class='ball10 ball' value=<%= obj.NUM5 %> disabled>
-                <% } else if(obj.NUM5 <= 20) { %>
-                    <input class='ball20 ball' value=<%= obj.NUM5 %> disabled>
-                <% } else if(obj.NUM5 <= 30) { %>
-                    <input class='ball30 ball' value=<%= obj.NUM5 %> disabled>
-                <% } else if(obj.NUM5 <= 40) { %>
-                    <input class='ball40 ball' value=<%= obj.NUM5 %> disabled>
-                <% } else { %>
-                    <input class='ball50 ball' value=<%= obj.NUM5 %> disabled>
-                <% } %>
-            </td>
-            <td class="td_w35">
-                <% if(obj.NUM6 <= 10) { %>
-                    <input class='ball10 ball' value=<%= obj.NUM6 %> disabled>
-                <% } else if(obj.NUM6 <= 20) { %>
-                    <input class='ball20 ball' value=<%= obj.NUM6 %> disabled>
-                <% } else if(obj.NUM6 <= 30) { %>
-                    <input class='ball30 ball' value=<%= obj.NUM6 %> disabled>
-                <% } else if(obj.NUM6 <= 40) { %>
-                    <input class='ball40 ball' value=<%= obj.NUM6 %> disabled>
-                <% } else { %>
-                    <input class='ball50 ball' value=<%= obj.NUM6 %> disabled>
-                <% } %>
-            </td>
-            <td class="td_w35">
-                <% if(obj.NUMB <= 10) { %>
-                    <input class='ball10 ball' value=<%= obj.NUMB %> disabled>
-                <% } else if(obj.NUMB <= 20) { %>
-                    <input class='ball20 ball' value=<%= obj.NUMB %> disabled>
-                <% } else if(obj.NUMB <= 30) { %>
-                    <input class='ball30 ball' value=<%= obj.NUMB %> disabled>
-                <% } else if(obj.NUMB <= 40) { %>
-                    <input class='ball40 ball' value=<%= obj.NUMB %> disabled>
-                <% } else { %>
-                    <input class='ball50 ball' value=<%= obj.NUMB %> disabled>
-                <% } %>
-            </td>
-            <td class="td_w90"><%= obj.PRIZE1_ %></td>
-            <td class="td_w90"><%= obj.PRIZE1CNT %></td>
-            <td class="td_w90"><%= obj.PRIZE2_ %></td>
-            <td class="td_w90"><%= obj.PRIZE2CNT %></td>
-            <td class="td_w150"><%= obj.ROUND_DATE %></td>
-          </tr>
-          <% } %>
-        </table>
+                <td class="td_w35"><%= obj.ROUND %></td>
+                <td class="td_w35">
+                    <% if(obj.NUM1 <= 10) { %>
+                        <input class='ball10 ball' value=<%= obj.NUM1 %> disabled>
+                    <% } else if(obj.NUM1 <= 20) { %>
+                        <input class='ball20 ball' value=<%= obj.NUM1 %> disabled>
+                    <% } else if(obj.NUM1 <= 30) { %>
+                        <input class='ball30 ball' value=<%= obj.NUM1 %> disabled>
+                    <% } else if(obj.NUM1 <= 40) { %>
+                        <input class='ball40 ball' value=<%= obj.NUM1 %> disabled>
+                    <% } else { %>
+                        <input class='ball50 ball' value=<%= obj.NUM1 %> disabled>
+                    <% } %>
+                </td>
+                <td class="td_w35">
+                    <% if(obj.NUM2 <= 10) { %>
+                        <input class='ball10 ball' value=<%= obj.NUM2 %> disabled>
+                    <% } else if(obj.NUM2 <= 20) { %>
+                        <input class='ball20 ball' value=<%= obj.NUM2 %> disabled>
+                    <% } else if(obj.NUM2 <= 30) { %>
+                        <input class='ball30 ball' value=<%= obj.NUM2 %> disabled>
+                    <% } else if(obj.NUM2 <= 40) { %>
+                        <input class='ball40 ball' value=<%= obj.NUM2 %> disabled>
+                    <% } else { %>
+                        <input class='ball50 ball' value=<%= obj.NUM2 %> disabled>
+                    <% } %>
+                </td>
+                <td class="td_w35">
+                    <% if(obj.NUM3 <= 10) { %>
+                        <input class='ball10 ball' value=<%= obj.NUM3 %> disabled>
+                    <% } else if(obj.NUM3 <= 20) { %>
+                        <input class='ball20 ball' value=<%= obj.NUM3 %> disabled>
+                    <% } else if(obj.NUM3 <= 30) { %>
+                        <input class='ball30 ball' value=<%= obj.NUM3 %> disabled>
+                    <% } else if(obj.NUM3 <= 40) { %>
+                        <input class='ball40 ball' value=<%= obj.NUM3 %> disabled>
+                    <% } else { %>
+                        <input class='ball50 ball' value=<%= obj.NUM3 %> disabled>
+                    <% } %>
+                </td>
+                <td class="td_w35">
+                    <% if(obj.NUM4 <= 10) { %>
+                        <input class='ball10 ball' value=<%= obj.NUM4 %> disabled>
+                    <% } else if(obj.NUM4 <= 20) { %>
+                        <input class='ball20 ball' value=<%= obj.NUM4 %> disabled>
+                    <% } else if(obj.NUM4 <= 30) { %>
+                        <input class='ball30 ball' value=<%= obj.NUM4 %> disabled>
+                    <% } else if(obj.NUM4 <= 40) { %>
+                        <input class='ball40 ball' value=<%= obj.NUM4 %> disabled>
+                    <% } else { %>
+                        <input class='ball50 ball' value=<%= obj.NUM4 %> disabled>
+                    <% } %>
+                </td>
+                <td class="td_w35">
+                    <% if(obj.NUM5 <= 10) { %>
+                        <input class='ball10 ball' value=<%= obj.NUM5 %> disabled>
+                    <% } else if(obj.NUM5 <= 20) { %>
+                        <input class='ball20 ball' value=<%= obj.NUM5 %> disabled>
+                    <% } else if(obj.NUM5 <= 30) { %>
+                        <input class='ball30 ball' value=<%= obj.NUM5 %> disabled>
+                    <% } else if(obj.NUM5 <= 40) { %>
+                        <input class='ball40 ball' value=<%= obj.NUM5 %> disabled>
+                    <% } else { %>
+                        <input class='ball50 ball' value=<%= obj.NUM5 %> disabled>
+                    <% } %>
+                </td>
+                <td class="td_w35">
+                    <% if(obj.NUM6 <= 10) { %>
+                        <input class='ball10 ball' value=<%= obj.NUM6 %> disabled>
+                    <% } else if(obj.NUM6 <= 20) { %>
+                        <input class='ball20 ball' value=<%= obj.NUM6 %> disabled>
+                    <% } else if(obj.NUM6 <= 30) { %>
+                        <input class='ball30 ball' value=<%= obj.NUM6 %> disabled>
+                    <% } else if(obj.NUM6 <= 40) { %>
+                        <input class='ball40 ball' value=<%= obj.NUM6 %> disabled>
+                    <% } else { %>
+                        <input class='ball50 ball' value=<%= obj.NUM6 %> disabled>
+                    <% } %>
+                </td>
+                <td class="td_w35">
+                    <% if(obj.NUMB <= 10) { %>
+                        <input class='ball10 ball' value=<%= obj.NUMB %> disabled>
+                    <% } else if(obj.NUMB <= 20) { %>
+                        <input class='ball20 ball' value=<%= obj.NUMB %> disabled>
+                    <% } else if(obj.NUMB <= 30) { %>
+                        <input class='ball30 ball' value=<%= obj.NUMB %> disabled>
+                    <% } else if(obj.NUMB <= 40) { %>
+                        <input class='ball40 ball' value=<%= obj.NUMB %> disabled>
+                    <% } else { %>
+                        <input class='ball50 ball' value=<%= obj.NUMB %> disabled>
+                    <% } %>
+                </td>
+                <td class="td_w90"><%= obj.PRIZE1_ %></td>
+                <td class="td_w90"><%= obj.PRIZE1CNT %></td>
+                <td class="td_w90"><%= obj.PRIZE2_ %></td>
+                <td class="td_w90"><%= obj.PRIZE2CNT %></td>
+                <td class="td_w150"><%= obj.ROUND_DATE %></td>
+            </tr>
+            <% } %>
+            </table>
+        </div>
     </div>
 </body>
 </html>

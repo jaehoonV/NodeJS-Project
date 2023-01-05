@@ -1,10 +1,9 @@
 const mysql = require('mysql');  // mysql 모듈 로드
 const http = require('http');
 const express = require('express');
-
+const path = require('path');
 const app = express();
 const server = http.createServer(app);
-
 const hostname = '127.0.0.1';
 const port = 3000;
 
@@ -46,19 +45,22 @@ let sql_lo_recently10_num_cnt = "SELECT TEMP.NUM AS NUM, SUM(TEMP.NUM_CNT) AS NU
   "SELECT NUM5 AS NUM, COUNT(NUM5) AS NUM_CNT FROM `V_RECENTLY10_LOTTO` GROUP BY NUM UNION ALL " +
   "SELECT NUM6 AS NUM, COUNT(NUM6) AS NUM_CNT FROM `V_RECENTLY10_LOTTO` GROUP BY NUM UNION ALL " +
   "SELECT NUMB AS NUM, COUNT(NUMB) AS NUM_CNT FROM `V_RECENTLY10_LOTTO` GROUP BY NUM) TEMP GROUP BY NUM ORDER BY NUM_CNT DESC; "; 
-let sql_data_lo;
-  connection.query(sql_lo + sql_lo_num_cnt + sql_lo_recently10_num_cnt, function (err, results) {
-    if (err) {
-        console.log(err);
-    }
-    sql_data_lo = {
-      "results_lo" : results[0],
-      "results_lo_num_cnt" : results[1],
-      "results_lo_recently10_num_cnt" : results[2]
-    }
-});
+
+/* 평균보다 많이 나온 번호 */
+let sql_lo_avg_up = "SELECT * FROM V_LOTTO_CNT_SUM WHERE NUM_CNT >= GET_AVG_LOTTO_CNT() ORDER BY NUM_CNT DESC, NUM ASC; ";
+
+/* 평균보다 적게 나온 번호 */
+let sql_lo_avg_down = "SELECT * FROM V_LOTTO_CNT_SUM WHERE NUM_CNT < GET_AVG_LOTTO_CNT() ORDER BY NUM_CNT DESC, NUM ASC; ";
+
+/* 많이 나온 번호(25%) */
+let sql_lo_avg_top = "SELECT * FROM V_LOTTO_CNT_SUM WHERE NUM_CNT >= GET_AVG_LOTTO_CNT_TOP() ORDER BY NUM_CNT DESC, NUM ASC; ";
+
+/* 적게 나온 번호(25%) */
+let sql_lo_avg_bottom = "SELECT * FROM V_LOTTO_CNT_SUM WHERE NUM_CNT <= GET_AVG_LOTTO_CNT_BOTTOM() ORDER BY NUM_CNT DESC, NUM ASC; ";
 
 //app.set('view engine', 'pug');
+app.use('/node_modules', express.static(path.join(__dirname, '/node_modules')));
+app.use(express.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 app.set('views', './views');
 app.use(express.static("views"));
@@ -68,13 +70,61 @@ app.get('/', (req, res) => {
 })
 
 app.get('/lotto', (req, res) => {
-  res.render('lotto', sql_data_lo);
+  let sql_data_lo;
+  connection.query(sql_lo + sql_lo_num_cnt + sql_lo_recently10_num_cnt + sql_lo_avg_up + sql_lo_avg_down + sql_lo_avg_top + sql_lo_avg_bottom, function (err, results) {
+    if (err) {
+        console.log(err);
+    }
+    sql_data_lo = {
+      "results_lo" : results[0],
+      "results_lo_num_cnt" : results[1],
+      "results_lo_recently10_num_cnt" : results[2],
+      "results_lo_avg_up" : results[3],
+      "results_lo_avg_down" : results[4],
+      "results_lo_top25" : results[5],
+      "results_lo_bottom25" : results[6]
+    }
+    res.render('lotto', sql_data_lo);
+  });
+
+})
+
+app.post('/save', (req, res) => {
+  console.log(req.body);
+  let sql_lo_insert = "INSERT INTO LOTTO(ROUND,NUM1,NUM2,NUM3,NUM4,NUM5,NUM6,NUMB,PRIZE1,PRIZE1CNT,PRIZE2,PRIZE2CNT,ROUND_DATE,REGDAY,REGID) "
+  + "VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_DATE(), ?); ";
+
+  connection.query(sql_lo_insert,
+              [req.body.round, req.body.num1, req.body.num2, req.body.num3, req.body.num4, req.body.num5, req.body.num6, req.body.numB, req.body.prize1, req.body.prize1cnt, req.body.prize2, req.body.prize2cnt, req.body.round_date, req.body.regid], 
+              function (err, result) {
+    if (err) {
+      console.log(err);
+    } else{
+      console.log("1 record inserted!");
+      let sql_data_lo;
+      connection.query(sql_lo + sql_lo_num_cnt + sql_lo_recently10_num_cnt + sql_lo_avg_up + sql_lo_avg_down + sql_lo_avg_top + sql_lo_avg_bottom, function (err, results) {
+        if (err) {
+            console.log(err);
+        }
+        sql_data_lo = {
+          "results_lo" : results[0],
+          "results_lo_num_cnt" : results[1],
+          "results_lo_recently10_num_cnt" : results[2],
+          "results_lo_avg_up" : results[3],
+          "results_lo_avg_down" : results[4],
+          "results_lo_top25" : results[5],
+          "results_lo_bottom25" : results[6]
+        }
+        res.render('lotto', sql_data_lo);
+      });
+    }
+  });
 })
 
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
 
-connection.end(); // DB 접속 종료
+// connection.end(); // DB 접속 종료
 
 
