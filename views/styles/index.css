@@ -81,15 +81,15 @@ td {
 }
 
 .ball {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     text-align: center;
     border-radius: 50%;
     font-size: 1rem;
     font-weight: bolder;
     color: #ffffff;
     padding: 1px 1px;
-    margin: 5px 1px;
+    margin: 5px 2px;
 }
 
 .ball_big1 {
@@ -101,7 +101,7 @@ td {
     font-weight: bolder;
     color: #ffffff;
     padding: 1px 1px;
-    margin: 5px 1px;
+    margin: 5px 2px;
 }
 
 .ball10 {
@@ -127,6 +127,12 @@ td {
 .ball50 {
     background-color: var(--ball50);
     border: 1px solid var(--ball50);
+}
+
+.not_include_ball{
+    background-color:  rgb(237 235 235 / 36%);
+    border: 1px solid rgb(216, 214, 214);
+    color: #cbc7c7;
 }
 
 .div_box1 {
