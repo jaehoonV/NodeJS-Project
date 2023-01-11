@@ -116,12 +116,13 @@
             <% } %>
         </div>
 
-        <div id="lotto_machine">
-            <button type="button" onclick="lotto_extraction()">추출</button>
-            <span id="temp"></span>
-            <div class="result"></div>
+        <div class="div_box2">
+            <div id="lotto_machine">
+                <button type="button" onclick="lotto_extraction()">추출</button>
+                <span id="temp"></span>
+            </div>
+            <div class="history_result"></div>
         </div>
-
         <div>
             <form action="/save" method="POST">
                 <div class="form-group">

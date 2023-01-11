@@ -143,9 +143,26 @@ td {
     padding: 3px 5px;
 }
 
+.div_box2 {
+    margin: 10px auto 20px auto;
+    padding: 3px 5px;
+    display: flex;
+}
+
 #lotto_machine {
     width: 50%;
     height: 400px;
+    margin: 20px auto;
+    padding: 10px 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.history_result{
+    width: 300px;
+    display: inline-block;
+    position: relative;
     margin: 20px auto;
     padding: 10px 10px;
     border: 1px solid black;

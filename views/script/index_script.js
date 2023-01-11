@@ -58,7 +58,7 @@ function lotto_extraction() {
     
     $('#temp').html(output);
 
-    $('.result').html(''); // 초기화
+    $('.history_result').html(''); // 초기화
     
     $.ajax({
         url : "/extraction",
@@ -77,7 +77,7 @@ function lotto_extraction() {
                 + include_check(lotto,json_data[i].NUM5)
                 + include_check(lotto,json_data[i].NUM6)
                 +'</div>';
-            $('.result').append(output);
+            $('.history_result').append(output);
         }
     })
     .fail(function (xhr, status, errorThrown){
@@ -98,8 +98,21 @@ function include_check(lotto, num){
         } else {
             return "<input class='ball50 ball' value='" + num + "'disabled>";
         }
-        
     }
-
     return "<input class='ball10 ball not_include_ball' value='" + num + "'disabled>";
 }
+
+function init(){
+    $.ajax({
+        url : "/lotto",
+        type : "POST",
+        dataType : "JSON",
+        data : {"today" : new Date()}
+    })
+    .done(function (json){
+        let json_data = JSON.parse(JSON.stringify(json));
+        console.log(json_data);
+    })
+}
+
+init();
