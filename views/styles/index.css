@@ -1,3 +1,7 @@
+body{
+    background: var(#edf1f4);
+}
+
 table,
 th,
 tr,
@@ -35,8 +39,16 @@ td {
     width: 35px;
 }
 
+.td_w45 {
+    width: 45px;
+}
+
 .td_w50 {
     width: 50px;
+}
+
+.td_w80 {
+    width: 80px;
 }
 
 .td_w90 {
@@ -45,6 +57,10 @@ td {
 
 .td_w100 {
     width: 100px;
+}
+
+.td_w130 {
+    width: 130px;
 }
 
 .td_w150 {
@@ -62,6 +78,12 @@ td {
 .td_w300 {
     width: 300px;
 }
+
+.f_8{
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
 
 /* lotto */
 :root {
@@ -83,6 +105,18 @@ td {
 .ball {
     width: 30px;
     height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 1rem;
+    font-weight: bolder;
+    color: #ffffff;
+    padding: 1px 1px;
+    margin: 5px 2px;
+}
+
+.ball_small1 {
+    width: 21px;
+    height: 21px;
     text-align: center;
     border-radius: 50%;
     font-size: 1rem;
@@ -138,7 +172,7 @@ td {
 .div_box1 {
     border: 1px solid black;
     border-radius: 10px;
-    width: 640px;
+    width: 80%;
     margin: 10px auto 20px auto;
     padding: 3px 5px;
 }
@@ -152,19 +186,73 @@ td {
 #lotto_machine {
     width: 50%;
     height: 400px;
-    margin: 20px auto;
+    margin: 20px 5px 20px auto;
     padding: 10px 10px;
     border: 1px solid black;
     border-radius: 10px;
     display: inline-block;
+    min-width: 310px;
+    max-width: 400px;
 }
 
 .history_result{
-    width: 300px;
+    width: 40%;
     display: inline-block;
     position: relative;
-    margin: 20px auto;
+    margin: 20px auto 20px 5px;
     padding: 10px 10px;
     border: 1px solid black;
     border-radius: 10px;
+    min-width: 305px;
+    max-width: 350px;
 }
+
+.div_wrap {
+    display: inline-block;
+    margin: 2px 2px;
+}
+
+.loader {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ 
+ .loader span {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    background: #eaeef0;
+    border: 2px solid #eaeef0;
+    box-shadow: -8px -8px 15px rgba(255, 255, 255, 1), 8px 8px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    overflow: hidden;
+ }
+ 
+ .loader span::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    background: #eaeef0;
+    border-radius: 50%;
+    box-shadow: -8px -8px 15px rgba(255, 255, 255, 1), 8px 8px 25px rgba(0, 0, 0, 0.25),
+       inset 3px 3px 10px rgba(0, 0, 0, 0.1),
+       inset -1px -1px 15px rgba(255, 255, 255, 1);
+    border: 2px solid #eaeef0;
+    z-index: 1;
+ }
+ 
+ .loader span i {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(#0583ebd4, #f12368db, #f3dd1bd9);
+    border-radius: 50%;
+    filter: blur(5px);
+    animation: animate 1s linear infinite;
+ }
+ 
+ @keyframes animate{
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+ }

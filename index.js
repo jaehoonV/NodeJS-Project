@@ -61,22 +61,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/lotto', (req, res) => {
-  let sql_data_lo;
-  maria.query(sql_lo + sql_lo_num_cnt + sql_lo_recently10_num_cnt + sql_lo_avg_up + sql_lo_avg_down + sql_lo_avg_top + sql_lo_avg_bottom, function (err, results) {
-    if (err) {
-        console.log(err);
-    }
-    sql_data_lo = {
-      "results_lo" : results[0],
-      "results_lo_num_cnt" : results[1],
-      "results_lo_recently10_num_cnt" : results[2],
-      "results_lo_avg_up" : results[3],
-      "results_lo_avg_down" : results[4],
-      "results_lo_top25" : results[5],
-      "results_lo_bottom25" : results[6]
-    }
-    res.render('lotto', sql_data_lo);
-  });
+    res.render('lotto');
 })
 
 app.post('/lotto', (req, res) => {
