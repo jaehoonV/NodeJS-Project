@@ -87,6 +87,9 @@ td {
 
 /* lotto */
 :root {
+    --button-color: #ffffff;
+    --button-bg-color: #0d6efd;
+    --button-hover-bg-color: #025ce2;
     --ball10: #fbc400;
     --ball20: #69c8f2;
     --ball30: #ff7272;
@@ -170,7 +173,7 @@ td {
 }
 
 .div_box1 {
-    border: 1px solid black;
+    border: 1px solid var(--button-bg-color);
     border-radius: 10px;
     width: 80%;
     margin: 10px auto 20px auto;
@@ -185,10 +188,10 @@ td {
 
 #lotto_machine {
     width: 50%;
-    height: 400px;
+    min-height: 400px;
     margin: 20px 5px 20px auto;
     padding: 10px 10px;
-    border: 1px solid black;
+    border: 1px solid var(--button-bg-color);
     border-radius: 10px;
     display: inline-block;
     min-width: 310px;
@@ -201,7 +204,7 @@ td {
     position: relative;
     margin: 20px auto 20px 5px;
     padding: 10px 10px;
-    border: 1px solid black;
+    border: 1px solid var(--button-bg-color);
     border-radius: 10px;
     min-width: 305px;
     max-width: 350px;
@@ -212,6 +215,7 @@ td {
     margin: 2px 2px;
 }
 
+/* 로딩 */
 .loader {
     position: relative;
     display: flex;
@@ -256,3 +260,192 @@ td {
     0%{transform: rotate(0deg);}
     100%{transform: rotate(360deg);}
  }
+ /* 로딩 */
+
+ .input_wh33 {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid var(--button-bg-color);
+    text-align: center;
+    margin-right: 0.5em;
+    font-weight: bolder;
+    font-size: 1rem;
+ }
+ 
+ .input_wh33:hover,
+ .input_wh33:focus {
+    animation: pulse 1s;
+    box-shadow: 0 0 0 0.5em transparent;
+    background-color: var(--button-bg-color);
+    color: #ffffff;
+    outline: 1px solid var(--button-bg-color);
+ }
+
+ @keyframes pulse {
+    0% {
+       box-shadow: 0 0 0 0 var(--button-bg-color);
+    }
+ }
+
+ #pick_num {
+    display: block;
+    background-color: var(--button-bg-color);
+    border: 1px solid var(--button-bg-color);
+    color: var(--button-color);
+    height: 4rem;
+    text-align: center;
+    border-radius: 2rem;
+    line-height: 3.8;
+    margin: 0px auto 15px auto;
+ }
+
+ #pick_num .ball_big1{
+    margin: 0px 5px;
+ }
+
+ #save_box {
+    width: 85%;
+    margin: 0px auto;
+    font-size: 1.5rem;
+    text-align: center;
+ }
+
+ .button_css {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: var(--button-bg-color);
+    color: var(--button-color);
+    margin: 0;
+    padding: 0.2rem 0.5rem;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    display: inline-block;
+    width: auto;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    transition: 0.5s;
+ }
+ 
+ .button_css:active,
+ .button_css:hover,
+ .button_css:focus {
+    background: var(--button-hover-bg-color);
+    outline: 0;
+ }
+ 
+ .button_css:disabled {
+    opacity: 0.5;
+ }
+
+ .tra-effect{
+    animation: tra-ani 0.7s;
+ }
+
+ @keyframes tra-ani {
+    0% {
+       opacity: 0.2;
+    }
+
+    100%{
+        opacity: 1;
+    }
+ }
+
+ /* 옵션 css */
+.selectBox * {
+    box-sizing: border-box;
+ }
+ 
+ .selectBox {
+    position: relative;
+    width: 280px;
+    height: 35px;
+    border-radius: 4px;
+    border: 2px solid var(--button-bg-color);
+    background: url('https://cdn4.iconfinder.com/data/icons/basic-user-interface-elements/700/down-bottom-arrow-512.png') calc(100% - 7px) center no-repeat;
+    background-size: 20px;
+    cursor: pointer;
+    margin: 10px auto;
+ }
+ 
+ .selectBox:after {
+    content: '';
+    display: block;
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 35px;
+    background: var(--button-bg-color);
+ }
+ 
+ .selectBox .label {
+    display: flex;
+    align-items: center;
+    width: inherit;
+    height: inherit;
+    border: 0 none;
+    outline: 0 none;
+    padding-left: 15px;
+    background: transparent;
+    cursor: pointer;
+ }
+ 
+ .selectBox .optionList {
+    position: absolute;
+    top: 28px;
+    left: 0;
+    width: 100%;
+    background: var(--button-bg-color);
+    color: #fff;
+    list-style-type: none;
+    padding: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    max-height: 0;
+    transition: .3s ease-in;
+ }
+ 
+ .selectBox .optionList::-webkit-scrollbar {
+    width: 6px;
+ }
+ 
+ .selectBox .optionList::-webkit-scrollbar-track {
+    background: transparent;
+ }
+ 
+ .selectBox .optionList::-webkit-scrollbar-thumb {
+    background: #303030;
+    border-radius: 45px;
+ }
+ 
+ .selectBox .optionList::-webkit-scrollbar-thumb:hover {
+    background: #303030;
+ }
+ 
+ .selectBox.active .optionList {
+    max-height: 500px;
+ }
+ 
+ .selectBox .optionItem {
+    border-bottom: 1px dashed #003481;
+    padding: 5px 15px 5px;
+    transition: .1s;
+ }
+ 
+ .selectBox .optionItem:hover {
+    background: var(--button-hover-bg-color);
+ }
+ 
+ .selectBox .optionItem:last-child {
+    border-bottom: 0 none;
+ }
+ /* 옵션 css */
+ 

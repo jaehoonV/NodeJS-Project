@@ -51,8 +51,33 @@
         </div>
         <div class="div_box2">
             <div id="lotto_machine">
-                <button type="button" onclick="lotto_extraction()">추출</button>
-                <span id="temp"></span>
+                <div id="pick_num"> </div>
+                <div>
+                    <input class="op_val input_wh33" maxlength="2">
+                    <input class="op_val input_wh33" maxlength="2">
+                    <input class="op_val input_wh33" maxlength="2">
+                    <input class="op_val input_wh33" maxlength="2">
+                    <input class="op_val input_wh33" maxlength="2">
+                </div>
+
+                <div class="box">
+                    <div class="selectBox">
+                      <button class="label">Select Option</button>
+                      <input id="op_value" value="0" hidden>
+                      <ul class="optionList">
+                        <li class="optionItem" value=0>None</li>
+                        <li class="optionItem" value=1>평균보다 많이 나온 번호</li>
+                        <li class="optionItem" value=2>많이 나온 번호</li>
+                        <li class="optionItem" value=3>평균보다 적게 나온 번호</li>
+                        <li class="optionItem" value=4>적게 나온 번호</li>
+                        <li class="optionItem" value=5>최근 10회차 번호</li>
+                      </ul>
+                    </div>
+                </div>
+
+                <button type="button" onclick="lotto_extraction()" class="button_css">추출</button>
+                <button type="button" onclick="save_num()" class="button_css">저장</button>
+                <div id="save_box"></div>
             </div>
             <div class="history_result"></div>
         </div>
@@ -114,7 +139,7 @@
                     <label>regid</label>
                     <input type="text" class="form-control" name="regid" />
                 </div>
-                <button type="submit">Submit</button>
+                <button type="submit" class="button_css">Submit</button>
             </form>
         </div>
         

@@ -147,8 +147,19 @@ function history_toggle() {
 
 function lotto_extraction() {
     let lotto = [];
-    let i = 0;
     let err_cnt0 = 0;
+    let op_cnt = 0;
+
+    // 번호 입력 처리
+    $('.op_val').each(function(){
+        let temp = $(this).val();
+        if(!lotto.includes(temp) && temp > 0 && temp <= 45){
+            lotto[op_cnt++] = temp;
+        }
+    });
+
+    let i = op_cnt;
+
     while (i < 6) {
         let num = Math.floor(Math.random() * 44) + 1;
         let bool = true;
@@ -181,19 +192,19 @@ function lotto_extraction() {
     let output = "";
     for (let l = 0; l < 6; l++) {
         if (lotto[l] <= 10) {
-            output += "<input class='ball10 ball_big1' value='" + lotto[l] + "'disabled>";
+            output += "<input class='ball10 ball_big1 tra-effect' value='" + lotto[l] + "'disabled>";
         } else if (lotto[l] <= 20) {
-            output += "<input class='ball20 ball_big1' value='" + lotto[l] + "'disabled>";
+            output += "<input class='ball20 ball_big1 tra-effect' value='" + lotto[l] + "'disabled>";
         } else if (lotto[l] <= 30) {
-            output += "<input class='ball30 ball_big1' value='" + lotto[l] + "'disabled>";
+            output += "<input class='ball30 ball_big1 tra-effect' value='" + lotto[l] + "'disabled>";
         } else if (lotto[l] <= 40) {
-            output += "<input class='ball40 ball_big1' value='" + lotto[l] + "'disabled>";
+            output += "<input class='ball40 ball_big1 tra-effect' value='" + lotto[l] + "'disabled>";
         } else {
-            output += "<input class='ball50 ball_big1' value='" + lotto[l] + "'disabled>";
+            output += "<input class='ball50 ball_big1 tra-effect' value='" + lotto[l] + "'disabled>";
         }
     }
     
-    $('#temp').html(output);
+    $('#pick_num').html(output);
 
     $('.history_result').html(''); // 초기화
     
@@ -206,7 +217,7 @@ function lotto_extraction() {
     .done(function (json){
         let json_data = JSON.parse(JSON.stringify(json));
         for(let i = 0; i < json_data.length; i++){
-            let output = '<div><span>' + json_data[i].ROUND + '회차 </span>'
+            let output = '<div class="tra-effect"><span>' + json_data[i].ROUND + '회차 </span>'
                 + include_check(lotto,json_data[i].NUM1)
                 + include_check(lotto,json_data[i].NUM2)
                 + include_check(lotto,json_data[i].NUM3)
@@ -237,4 +248,27 @@ function include_check(lotto, num){
         }
     }
     return "<input class='ball10 ball not_include_ball' value='" + num + "'disabled>";
+}
+
+function save_num() {
+    let newDiv = $("<div></div>");
+    newDiv.append($('#pick_num').html());
+    $('#save_box').append(newDiv);
+ }
+
+// 드롭다운 옵션
+window.onload = function () {
+    $('.optionItem').click(function () {
+        $('#op_value').val($(this).val());
+        $('.label').html($(this).html());
+        $('.selectBox').removeClass('active');
+    })
+
+    $('.label').click(function () {
+        if ($('.selectBox').hasClass('active')) {
+            $('.selectBox').removeClass('active');
+        } else {
+            $('.selectBox').addClass('active');
+        }
+    });
 }
