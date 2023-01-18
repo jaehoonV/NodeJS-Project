@@ -146,6 +146,7 @@ function history_toggle() {
 }
 
 function lotto_extraction() {
+    const select_op_val = $('#op_value').val();
     let lotto = [];
     let err_cnt0 = 0;
     let op_cnt = 0;
@@ -154,33 +155,52 @@ function lotto_extraction() {
     $('.op_val').each(function(){
         let temp = $(this).val();
         if(!lotto.includes(temp) && temp > 0 && temp <= 45){
-            lotto[op_cnt++] = temp;
+            lotto[op_cnt++] = Number(temp); // 숫자 처리 필수
         }
     });
 
     let i = op_cnt;
 
-    while (i < 6) {
-        let num = Math.floor(Math.random() * 44) + 1;
-        let bool = true;
-        for (let j in lotto) {
-            if (num == lotto[j]) {
-                bool = false;
+    switch (select_op_val) {
+        case "0": // 랜덤 추출
+            while (i < 6) {
+                let num = Math.floor(Math.random() * 44) + 1;
+                let bool = true;
+                for (let j in lotto) {
+                    if (num == lotto[j]) {
+                        bool = false;
+                    }
+                }
+                /* for (let k in except_num_arr) {
+                    if (num == except_num_arr[k]) {
+                        bool = false;
+                    }
+                } */
+                if (bool) {
+                    lotto.push(num);
+                    i++;
+                }
+                if (err_cnt0++ > 100) {
+                    alert("조건을 다시 설정해주시기바랍니다.");
+                    break;
+                }
             }
-        }
-        /* for (let k in except_num_arr) {
-            if (num == except_num_arr[k]) {
-                bool = false;
-            }
-        } */
-        if (bool) {
-            lotto.push(num);
-            i++;
-        }
-        if (err_cnt0++ > 100) {
-            alert("조건을 다시 설정해주시기바랍니다.");
-            break;
-        }
+        break;
+        case "1": // 평균보다 많이 나온 번호
+            lotto = option_extraction(i, results_lo_avg_up, lotto);
+        break;
+        case "2": // 많이 나온 번호(25%)
+            lotto = option_extraction(i, results_lo_top25, lotto);
+        break;
+        case "3": // 평균보다 적게 나온 번호
+            lotto = option_extraction(i, results_lo_avg_down, lotto);
+        break;
+        case "4": // 적게 나온 번호(25%)
+            lotto = option_extraction(i, results_lo_bottom25, lotto);
+        break;
+        case "5": // 최근 10회차 번호
+            lotto = option_extraction(i, results_lo_recently10_num_cnt, lotto);
+        break;
     }
 
     // 정렬
@@ -224,13 +244,41 @@ function lotto_extraction() {
                 + include_check(lotto,json_data[i].NUM4)
                 + include_check(lotto,json_data[i].NUM5)
                 + include_check(lotto,json_data[i].NUM6)
-                +'</div>';
+                +'<span> ' + json_data[i].CNT + '</span></div>';
             $('.history_result').append(output);
         }
     })
     .fail(function (xhr, status, errorThrown){
         alert("Ajax failed")
     })
+}
+
+function option_extraction(i, option_arr, lotto){
+    let option_lotto = lotto;
+    let err_cnt0 = 0;
+    while (i < 6) {
+        let arr = option_arr[Math.floor(Math.random() * option_arr.length)];
+        let bool = true;
+        for (let j in option_lotto) {
+            if (arr.NUM == option_lotto[j]) {
+                bool = false;
+            }
+        }
+        /* for (let k in except_num_arr) {
+            if (num == except_num_arr[k]) {
+                bool = false;
+            }
+        } */
+        if (bool) {
+            option_lotto.push(arr.NUM);
+            i++;
+        }
+        if (err_cnt0++ > 100) {
+            alert("조건을 다시 설정해주시기바랍니다.");
+            break;
+        }
+    }
+    return option_lotto;
 }
 
 function include_check(lotto, num){
