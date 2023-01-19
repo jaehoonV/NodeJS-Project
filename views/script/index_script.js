@@ -237,14 +237,16 @@ function lotto_extraction() {
     .done(function (json){
         let json_data = JSON.parse(JSON.stringify(json));
         for(let i = 0; i < json_data.length; i++){
-            let output = '<div class="tra-effect"><span>' + json_data[i].ROUND + '회차 </span>'
+            let output = '<div class="tra-effect"><span class="history_result_span">' + json_data[i].ROUND + '회차 </span>'
                 + include_check(lotto,json_data[i].NUM1)
                 + include_check(lotto,json_data[i].NUM2)
                 + include_check(lotto,json_data[i].NUM3)
                 + include_check(lotto,json_data[i].NUM4)
                 + include_check(lotto,json_data[i].NUM5)
                 + include_check(lotto,json_data[i].NUM6)
-                +'<span> ' + json_data[i].CNT + '</span></div>';
+                + '<span>&nbsp;&nbsp;</span>'
+                + include_check(lotto,json_data[i].NUMB)
+                +'<span> ' + json_data[i].RANK + '</span></div>';
             $('.history_result').append(output);
         }
     })

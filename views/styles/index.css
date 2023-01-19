@@ -207,7 +207,7 @@ td {
     border: 1px solid var(--button-bg-color);
     border-radius: 10px;
     min-width: 305px;
-    max-width: 350px;
+    max-width: 400px;
 }
 
 .div_wrap {
@@ -361,9 +361,9 @@ td {
  /* 옵션 css */
 .selectBox * {
     box-sizing: border-box;
- }
+}
  
- .selectBox {
+.selectBox {
     position: relative;
     width: 280px;
     height: 35px;
@@ -373,9 +373,9 @@ td {
     background-size: 20px;
     cursor: pointer;
     margin: 10px auto;
- }
+}
  
- .selectBox:after {
+.selectBox:after {
     content: '';
     display: block;
     width: 2px;
@@ -384,9 +384,9 @@ td {
     top: 0;
     right: 35px;
     background: var(--button-bg-color);
- }
+}
  
- .selectBox .label {
+.selectBox .label {
     display: flex;
     align-items: center;
     width: inherit;
@@ -396,9 +396,9 @@ td {
     padding-left: 15px;
     background: transparent;
     cursor: pointer;
- }
+}
  
- .selectBox .optionList {
+.selectBox .optionList {
     position: absolute;
     top: 28px;
     left: 0;
@@ -411,41 +411,45 @@ td {
     overflow: hidden;
     max-height: 0;
     transition: .3s ease-in;
- }
+}
  
- .selectBox .optionList::-webkit-scrollbar {
+.selectBox .optionList::-webkit-scrollbar {
     width: 6px;
- }
+}
  
- .selectBox .optionList::-webkit-scrollbar-track {
+.selectBox .optionList::-webkit-scrollbar-track {
     background: transparent;
- }
+}
  
- .selectBox .optionList::-webkit-scrollbar-thumb {
+.selectBox .optionList::-webkit-scrollbar-thumb {
     background: #303030;
     border-radius: 45px;
- }
+}
  
- .selectBox .optionList::-webkit-scrollbar-thumb:hover {
+.selectBox .optionList::-webkit-scrollbar-thumb:hover {
     background: #303030;
- }
+}
  
- .selectBox.active .optionList {
+.selectBox.active .optionList {
     max-height: 500px;
- }
+}
  
- .selectBox .optionItem {
+.selectBox .optionItem {
     border-bottom: 1px dashed #003481;
     padding: 5px 15px 5px;
     transition: .1s;
- }
+}
  
- .selectBox .optionItem:hover {
+.selectBox .optionItem:hover {
     background: var(--button-hover-bg-color);
- }
+}
  
- .selectBox .optionItem:last-child {
+.selectBox .optionItem:last-child {
     border-bottom: 0 none;
- }
- /* 옵션 css */
+}
+/* 옵션 css */
  
+.history_result_span{
+    width: 75px;
+    display: inline-block;
+}

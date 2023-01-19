@@ -103,7 +103,10 @@ app.post('/save', (req, res) => {
 
 app.post('/extraction', (req, res) => {
 
-  let sql_lo_ext_sel = "SELECT A.ROUND, A.NUM1, A.NUM2, A.NUM3, A.NUM4, A.NUM5, A.NUM6, COUNT(A.ROUND) AS CNT FROM "
+  let sql_lo_ext_sel = "SELECT B.ROUND, B.NUM1, B.NUM2, B.NUM3, B.NUM4, B.NUM5, B.NUM6, C.NUMB, B.CNT, "
+    + "CASE WHEN C.NUMB IN (" + req.body.num1 + ", " + req.body.num2 + ", " + req.body.num3 + ", " + req.body.num4 + ", " + req.body.num5 + ", " + req.body.num6 + ") THEN '3등' "
+    + "WHEN B.CNT = 5 THEN '2등' WHEN B.CNT = 6 THEN '1등' ELSE '4등' END AS RANK "
+    + "FROM (SELECT A.ROUND, A.NUM1, A.NUM2, A.NUM3, A.NUM4, A.NUM5, A.NUM6, COUNT(A.ROUND) AS CNT FROM "
     + "(SELECT * FROM LOTTO WHERE NUM1 IN (" + req.body.num1 + ", " + req.body.num2 + ", " + req.body.num3 + ", " + req.body.num4 + ", " + req.body.num5 + ", " + req.body.num6 + ") "
     + "UNION ALL "
     + "SELECT * FROM LOTTO WHERE NUM2 IN (" + req.body.num1 + ", " + req.body.num2 + ", " + req.body.num3 + ", " + req.body.num4 + ", " + req.body.num5 + ", " + req.body.num6 + ") "
@@ -115,7 +118,7 @@ app.post('/extraction', (req, res) => {
     + "SELECT * FROM LOTTO WHERE NUM5 IN (" + req.body.num1 + ", " + req.body.num2 + ", " + req.body.num3 + ", " + req.body.num4 + ", " + req.body.num5 + ", " + req.body.num6 + ") "
     + "UNION ALL "
     + "SELECT * FROM LOTTO WHERE NUM6 IN (" + req.body.num1 + ", " + req.body.num2 + ", " + req.body.num3 + ", " + req.body.num4 + ", " + req.body.num5 + ", " + req.body.num6 + ")) A "
-    + "GROUP BY A.ROUND, A.NUM1, A.NUM2, A.NUM3, A.NUM4, A.NUM5, A.NUM6 HAVING CNT > 3 ";
+    + "GROUP BY A.ROUND, A.NUM1, A.NUM2, A.NUM3, A.NUM4, A.NUM5, A.NUM6) B, LOTTO C WHERE B.CNT > 3 AND B.ROUND = C.ROUND ";
   
   maria.query(sql_lo_ext_sel, function (err, result) {
     if (err) {
