@@ -7,6 +7,14 @@ let results_lo_top25; // 많이 나온 번호(25%) 통계
 let results_lo_bottom25; // 적게 나온 번호(25%) 통계
 
 function init(){
+    // 제외번호 버튼 출력
+    let ex_num_output = "";
+    for (let ex = 1; ex < 46; ex++) {
+        ex_num_output += makeExBallFunc(ex);
+    }
+
+    $('#except_num').html(ex_num_output);
+
     $.ajax({
         url : "/lotto",
         type : "POST",
@@ -22,13 +30,6 @@ function init(){
         results_lo_avg_down = json_data.results_lo_avg_down;
         results_lo_top25 = json_data.results_lo_top25;
         results_lo_bottom25 = json_data.results_lo_bottom25;
-        console.log(results_lo);
-        console.log(results_lo_num_cnt);
-        console.log(results_lo_recently10_num_cnt);
-        console.log(results_lo_avg_up);
-        console.log(results_lo_avg_down);
-        console.log(results_lo_top25);
-        console.log(results_lo_bottom25);
         for(let i = 1; i <= 6; i++){
             lo_func(i);
         }
@@ -136,6 +137,23 @@ function makeBallFunc(n){
     return output;
 }
 
+function makeExBallFunc(n){
+    let output = "";
+    if(n <= 10){
+        output += "<input type='button' class='ball10 ball ex_num' value=" + n + ">";
+    } else if(n <= 20){
+        output += "<input type='button' class='ball20 ball ex_num' value=" + n + ">";
+    } else if(n <= 30){
+        output += "<input type='button' class='ball30 ball ex_num' value=" + n + ">";
+    } else if(n <= 40){
+        output += "<input type='button' class='ball40 ball ex_num' value=" + n + ">";
+    } else if(n <= 50){
+        output += "<input type='button' class='ball50 ball ex_num' value=" + n + ">";
+    }
+    return output;
+}
+
+
 function history_toggle() {
     var style = $('#history').css("display");
     if (style == "none") {
@@ -144,6 +162,9 @@ function history_toggle() {
         $('#history').css("display", "none");
     }
 }
+
+// 제외 번호
+let except_num_arr = [];
 
 function lotto_extraction() {
     const select_op_val = $('#op_value').val();
@@ -171,11 +192,11 @@ function lotto_extraction() {
                         bool = false;
                     }
                 }
-                /* for (let k in except_num_arr) {
+                for (let k in except_num_arr) {
                     if (num == except_num_arr[k]) {
                         bool = false;
                     }
-                } */
+                }
                 if (bool) {
                     lotto.push(num);
                     i++;
@@ -266,11 +287,11 @@ function option_extraction(i, option_arr, lotto){
                 bool = false;
             }
         }
-        /* for (let k in except_num_arr) {
-            if (num == except_num_arr[k]) {
+        for (let k in except_num_arr) {
+            if (arr.NUM == except_num_arr[k]) {
                 bool = false;
             }
-        } */
+        }
         if (bool) {
             option_lotto.push(arr.NUM);
             i++;
@@ -322,3 +343,19 @@ window.onload = function () {
         }
     });
 }
+
+// 제외번호
+$(document).on("click",".ex_num",function(e){ 
+    e.preventDefault();
+    if ($(this).hasClass('ex_active')) {
+        $(this).removeClass('ex_active');
+        except_num_arr = except_num_arr.filter((element) => element !== this.value);
+        $('#except_num_input').val(except_num_arr);
+    } else {
+        $(this).addClass('ex_active');
+        except_num_arr.push(this.value);
+        $('#except_num_input').val(except_num_arr);
+    }
+})
+
+

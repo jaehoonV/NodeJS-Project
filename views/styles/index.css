@@ -1,5 +1,5 @@
 body{
-    background: var(#edf1f4);
+    background: #edf1f4;
 }
 
 table,
@@ -198,16 +198,12 @@ td {
     max-width: 400px;
 }
 
-.history_result{
-    width: 40%;
+.left_box{
     display: inline-block;
     position: relative;
     margin: 20px auto 20px 5px;
-    padding: 10px 10px;
-    border: 1px solid var(--button-bg-color);
-    border-radius: 10px;
-    min-width: 305px;
-    max-width: 400px;
+    min-width: 410px;
+    max-width: 410px;
 }
 
 .div_wrap {
@@ -282,9 +278,21 @@ td {
     outline: 1px solid var(--button-bg-color);
  }
 
+.ex_num:hover {
+    animation: pulse2 1s;
+    box-shadow: 0 0 0 0.3em transparent;
+    outline: 1px solid #303030;
+ }
+ 
  @keyframes pulse {
     0% {
        box-shadow: 0 0 0 0 var(--button-bg-color);
+    }
+ }
+ 
+ @keyframes pulse2 {
+    0% {
+       box-shadow: 0 0 0 0 #303030;
     }
  }
 
@@ -306,7 +314,7 @@ td {
 
  #save_box {
     width: 85%;
-    margin: 0px auto;
+    margin: 40px auto 5px auto;
     font-size: 1.5rem;
     text-align: center;
  }
@@ -448,8 +456,41 @@ td {
     border-bottom: 0 none;
 }
 /* 옵션 css */
- 
+
+.history_result{
+    display: inline-block;
+    width:97%;
+    position: relative;
+    margin-top: 10px;
+    padding: 5px 5px;
+    border: 1px solid var(--button-bg-color);
+    border-radius: 10px;
+    min-height: 150px;
+}
+
 .history_result_span{
     width: 75px;
     display: inline-block;
+}
+
+#except_num_input{
+    border: 1px solid #ddd;
+    height: 2rem;
+    font-size: 1rem;
+    margin-bottom: 7px;
+    width: 70%;
+ }
+ 
+ .ex_active{
+    outline: 2px solid black;
+ }
+ 
+ #except_num .ball{
+    margin: 7px 7px;
+ }
+
+#except_num_box{
+    border: 1px solid var(--button-bg-color);
+    border-radius: 10px;
+    padding: 5px;
 }

@@ -69,6 +69,7 @@ app.post('/lotto', (req, res) => {
   maria.query(sql_lo + sql_lo_num_cnt + sql_lo_recently10_num_cnt + sql_lo_avg_up + sql_lo_avg_down + sql_lo_avg_top + sql_lo_avg_bottom, function (err, results) {
     if (err) {
         console.log(err);
+        res.render('error', {error: err});
     }
     sql_data_lo = {
       "results_lo" : results[0],
@@ -94,6 +95,7 @@ app.post('/save', (req, res) => {
               function (err, result) {
     if (err) {
       console.log(err);
+      res.render('error', {error: err});
     } else{
       console.log("1 record inserted!");
       res.render('lotto');
@@ -123,11 +125,17 @@ app.post('/extraction', (req, res) => {
   maria.query(sql_lo_ext_sel, function (err, result) {
     if (err) {
       console.log(err);
+      res.render('error', {error: err});
     } else{
       res.json(result);
     }
   });
 })
+
+// 404 Error Handling
+app.all('*',(req, res, next) => {
+  res.status(404).render('error',{error: 404});
+});
 
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
