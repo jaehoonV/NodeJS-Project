@@ -16,7 +16,7 @@ function init(){
     $('#except_num').html(ex_num_output);
 
     $.ajax({
-        url : "/lotto",
+        url : "/lotto/",
         type : "POST",
         dataType : "JSON",
         data : {"today" : new Date()}
@@ -30,6 +30,7 @@ function init(){
         results_lo_avg_down = json_data.results_lo_avg_down;
         results_lo_top25 = json_data.results_lo_top25;
         results_lo_bottom25 = json_data.results_lo_bottom25;
+        
         for(let i = 1; i <= 6; i++){
             lo_func(i);
         }
@@ -153,7 +154,6 @@ function makeExBallFunc(n){
     return output;
 }
 
-
 function history_toggle() {
     var style = $('#history').css("display");
     if (style == "none") {
@@ -250,7 +250,7 @@ function lotto_extraction() {
     $('.history_result').html(''); // 초기화
     
     $.ajax({
-        url : "/extraction",
+        url : "/lotto/extraction",
         type : "POST",
         dataType : "JSON",
         data : {"num1" : lotto[0], "num2" : lotto[1], "num3" : lotto[2], "num4" : lotto[3], "num5" : lotto[4], "num6" : lotto[5]}
