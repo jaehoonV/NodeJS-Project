@@ -54,7 +54,6 @@ router.post('/', (req, res) => {
       "results_lo_top25" : results[5],
       "results_lo_bottom25" : results[6]
     }
-    console.log(req.body.today);
     res.json(sql_data_lo);
   });
 })
