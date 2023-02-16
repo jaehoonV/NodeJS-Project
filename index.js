@@ -13,6 +13,7 @@ const port = 3000;
 let indexRouter  = require('./routes/index');
 let lottoRouter = require('./routes/lotto');
 let minesweeperRouter = require('./routes/minesweeper');
+let daily2048Router = require('./routes/2048_daily');
 
 //app.set('view engine', 'pug');
 app.use('/node_modules', express.static(path.join(__dirname, '/node_modules')));
@@ -25,6 +26,7 @@ app.use(express.static("public"));
 app.use('/', indexRouter);
 app.use('/lotto', lottoRouter);
 app.use('/minesweeper', minesweeperRouter);
+app.use('/2048_daily', daily2048Router);
 
 // 404 Error Handling
 app.all('*',(req, res, next) => {
