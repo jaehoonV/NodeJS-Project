@@ -58,7 +58,7 @@
     </div>
     <div id="history_board"></div>
 
-    <div id="failed">
+    <!-- <div id="failed">
         <i class="fa-solid fa-face-dizzy fa-2xl"></i><br>
         <div class="click_cnt_div">클릭 :
             <span class="click_cnt"></span>회
@@ -68,9 +68,21 @@
             <span class="seconds_time"></span>초
         </div>
         <button class="retry_btn">Retry</button>
-    </div>
+    </div> -->
 
-    <div id="won">
+    <dialog id="failed">
+        <i class="fa-solid fa-face-dizzy fa-2xl"></i><br>
+        <div class="click_cnt_div">클릭 :
+            <span class="click_cnt"></span>회
+            <br>
+            시간 :
+            <span class="minutes_time"></span>
+            <span class="seconds_time"></span>초
+        </div>
+        <button class="retry_btn">Retry</button>
+    </dialog>
+
+    <!-- <div id="won">
         <i class="fa-solid fa-face-laugh-beam fa-2xl"></i><br>
         <form action="/minesweeper/save" method="POST">
             <div class="click_cnt_div">클릭 :
@@ -92,7 +104,31 @@
             </div>
         </form>
         <button class="retry_btn">Retry</button>
-    </div>
+    </div> -->
+
+    <dialog id="won">
+        <i class="fa-solid fa-face-laugh-beam fa-2xl"></i><br>
+        <form action="/minesweeper/save" method="POST">
+            <div class="click_cnt_div">클릭 :
+                <span class="click_cnt"></span>회
+                <br>
+                시간 :
+                <span class="minutes_time"></span>
+                <span class="seconds_time"></span>초
+                <br>
+                점수 :
+                <span class="score"></span>
+                <div>
+                    <input type="text" id="save_name" name="save_name" placeholder="NAME" maxlength="20">
+                    <button type="submit" id="save_btn">SAVE</button>
+                    <input type="text" id="save_score" name="save_score" hidden>
+                    <input type="text" id="save_click_cnt" name="save_click_cnt" hidden>
+                    <input type="text" id="save_play_time" name="save_play_time" hidden>
+                </div>
+            </div>
+        </form>
+        <button class="retry_btn">Retry</button>
+    </dialog>
 </body>
 
 </html>

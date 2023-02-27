@@ -90,9 +90,10 @@ window.onload = function () {
 
       // 시간   
       time_func();
-
-      $('#failed').css('display', 'block');
-      $('#failed').css({ opacity: 0 }).animate({ opacity: 1 }, 1100);
+      const failed_modal = document.getElementById('failed');
+      failed_modal.showModal();
+      /* $('#failed').css('display', 'block');
+      $('#failed').css({ opacity: 0 }).animate({ opacity: 1 }, 1100); */
    })
 
    function won() {
@@ -116,8 +117,10 @@ window.onload = function () {
       $('#save_click_cnt').val(save_click_cnt);
       $('#save_play_time').val(save_play_time);
 
-      $('#won').css('display', 'block');
-      $('#won').css({ opacity: 0 }).animate({ opacity: 1 }, 1100);
+      const won_modal = document.getElementById('won');
+      won_modal.showModal();
+      /* $('#won').css('display', 'block');
+      $('#won').css({ opacity: 0 }).animate({ opacity: 1 }, 1100); */
    }
 
    // 시간
