@@ -1,0 +1,39 @@
+#chat_container{
+    width: 400px;
+    border: 1px solid #ddd;
+    height: 600px;
+    background-color: rgb(178,199,218);
+    padding: 5px;
+}
+
+.my_chat_box{
+    text-align: right;
+    margin: 5px;
+}
+
+.chat_box{
+    text-align: left;
+    margin: 5px;
+}
+
+.my_chat_box>span, .chat_box>span{
+    background-color: #F7E600;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.chat_box>span{
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.my_chat_box>em, .chat_box>em{
+    margin: 5px;
+    font-size: 8px;
+    vertical-align: bottom;
+}
+
+.em_yellow{
+    color: #F7E600;
+}
