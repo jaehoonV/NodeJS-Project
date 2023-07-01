@@ -1,5 +1,7 @@
 const http = require('http');
 const express = require('express');
+const session = require('express-session')
+const FileStore = require('session-file-store')(session)
 const path = require('path');
 const app = express();
 const server = http.createServer(app);
@@ -10,6 +12,7 @@ const port = 3000;
 //const maria = require('./ext/conn_mariaDB');
 //maria.connect();   // DB 접속
 
+let authRouter  = require('./routes/auth');
 let indexRouter  = require('./routes/index');
 let lottoRouter = require('./routes/lotto');
 let minesweeperRouter = require('./routes/minesweeper');
@@ -25,7 +28,13 @@ app.set('view engine', 'ejs');
 app.use(express.static("views"));
 app.use(express.static("public"));
 
-app.use('/', indexRouter);
+app.use(session({
+  secret: "secret key",
+  is_logined: ""
+}));
+
+app.use('/', authRouter);
+app.use('/main', indexRouter);
 app.use('/lotto', lottoRouter);
 app.use('/minesweeper', minesweeperRouter);
 app.use('/2048_daily', daily2048Router);

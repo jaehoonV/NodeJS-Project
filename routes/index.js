@@ -5,7 +5,6 @@ router.use(express.static("public"));
 
 // mariaDB Connection
 const maria = require('../ext/conn_mariaDB');
-maria.connect();   // DB 접속
 
 let sql = "SELECT EMAIL, USERNAME FROM `MEMBER`";
 var sql_data;
@@ -20,7 +19,7 @@ maria.query(sql, function (err, results) {
 });
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/main', function(req, res, next) {
   res.render('index', sql_data);
 });
 
