@@ -6,7 +6,7 @@ router.use(express.static("public"));
 // mariaDB Connection
 const maria = require('../ext/conn_mariaDB');
 
-let sql = "SELECT EMAIL, USERNAME FROM `MEMBER`";
+let sql = "SELECT EMAIL, USERNAME, MASTER_YN FROM `MEMBER`";
 var sql_data;
 maria.query(sql, function (err, results) {
   if (err) {
