@@ -19,6 +19,7 @@ let minesweeperRouter = require('./routes/minesweeper');
 let daily2048Router = require('./routes/2048_daily');
 let myWorkListRouter = require('./routes/myWorkList');
 let chat_containerRouter = require('./routes/chat_container');
+let logPage = require('./routes/logPage');
 
 //app.set('view engine', 'pug');
 app.use('/node_modules', express.static(path.join(__dirname, '/node_modules')));
@@ -30,7 +31,8 @@ app.use(express.static("public"));
 
 app.use(session({
   secret: "secret key",
-  is_logined: ""
+  is_logined: "",
+  is_master: ""
 }));
 
 app.use('/', authRouter);
@@ -40,6 +42,7 @@ app.use('/minesweeper', minesweeperRouter);
 app.use('/2048_daily', daily2048Router);
 app.use('/my_work_list', myWorkListRouter);
 app.use('/chat_container', chat_containerRouter);
+app.use('/logPage', logPage);
 
 // 404 Error Handling
 app.all('*',(req, res, next) => {
