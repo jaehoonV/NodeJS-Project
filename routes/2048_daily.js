@@ -1,6 +1,7 @@
 let express = require('express');
 let router = express.Router();
 
+let createLog = require('../public/script/createLog.js');
 let authCheck = require('../public/script/authCheck.js');
 // mariaDB Connection
 const maria = require('../ext/conn_mariaDB');
@@ -12,24 +13,24 @@ router.get('/', (req, res) => {
     res.redirect('/login');
     return false;
   } else {
+    createLog.insertLog(req, res, 'MOVE 2048Daily PAGE', 'MOVE');
     res.render('2048_daily');
     return false;
   }
 })
 
 router.post('/save', (req, res) => {
-  console.log(req.body);
-  let sql_mine_insert = "INSERT INTO GAME_RECORD(SEQ,SCORE,NAME,REGDAY) "
-    + "VALUES( NEXTVAL(GAME_SEQ), ?, ?, CURRENT_DATE()); ";
+  let sql_mine_insert = "INSERT INTO GAME_RECORD(SEQ,SCORE,EMAIL,USERNAME,REGDAY) "
+    + "VALUES( NEXTVAL(GAME_SEQ), ?, ?, ?, CURRENT_DATE()); ";
 
   maria.query(sql_mine_insert,
-    [req.body.save_score, req.body.save_name],
+    [req.body.save_score, req.session.email, req.session.username],
     function (err, result) {
       if (err) {
         console.log(err);
         res.render('error', { error: err });
       } else {
-        console.log("1 record inserted!");
+        createLog.insertLog(req, res, '2048DAILY RECORD INSERTED', 'ACT');
         res.redirect('/2048_daily');
       }
     });
