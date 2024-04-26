@@ -5,8 +5,8 @@ module.exports = {
         // mariaDB Connection
         const maria = require('../../ext/conn_mariaDB');
 
-        let sql_insert_log = "INSERT INTO EVENT_LOG(SEQ,EMAIL,USERNAME,EVENT,EVENT_TYPE,EVENT_IP,REGDAY) VALUES( NEXTVAL(LOG_SEQ), ?, ?, ?, ?, ?, CURRENT_TIMESTAMP); ";
-        
+        let sql_insert_log = "INSERT INTO EVENT_LOG(SEQ,EMAIL,USERNAME,EVENT,EVENT_TYPE,EVENT_IP,REGDAY) "
+                        + "SELECT COALESCE(MAX(SEQ), 0) + 1, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP FROM color_memo.EVENT_LOG;";
         let req_email = "";
         let req_username = "";
 
