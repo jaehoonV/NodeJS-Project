@@ -351,8 +351,8 @@ function create_chat_users_list(chat_users){
     user_result += "</ul>";
 
     $('#create_chat_user_list').html(user_result);
-    $("#create_chat_popup").css("display", "block");
-    $("#overlay").css("display", "block");
+    effect_show("create_chat_popup");
+    effect_show("overlay");
 
 }
 
@@ -405,8 +405,8 @@ $(document).on("click","#create_chat_btn",function(e){
         })
         
         $('#create_chat_roomName').val('');
-        $("#create_chat_popup").css("display", "none");
-        $("#overlay").css("display", "none");
+        effect_hide("create_chat_popup");
+        effect_hide("overlay");
     }
     
 })
@@ -414,8 +414,8 @@ $(document).on("click","#create_chat_btn",function(e){
 $(document).on("click","#create_chat_close_btn, #overlay",function(e){ 
     e.preventDefault();
     $('#create_chat_roomName').val('');
-    $("#create_chat_popup").css("display", "none");
-    $("#overlay").css("display", "none");
+    effect_hide("create_chat_popup");
+    effect_hide("overlay");
 })
 
 $(document).on("click",".chat_user_list_li",function(e){ 
@@ -426,3 +426,30 @@ $(document).on("click",".chat_user_list_li",function(e){
     else $(this).find(".chat_user_list_chk").prop('checked',true);
 })
 
+/**
+ * 해당 id를 가진 요소의 투명도를 1로 설정한다.
+ * @param {String} id 아이디
+ */
+function effect_show(id) {
+    let target = $("#"+id);
+    if(target != null){
+        target.css("visibility", "visible");
+        setTimeout(() => {
+            target.css("opacity", "1");
+        }, 10);
+    }
+}
+
+/**
+ * 해당 id를 가진 요소의 투명도를 0으로 설정한다.
+ * @param {String} id 아이디
+ */
+function effect_hide(id) {
+    let target = $("#"+id);
+    if(target != null){
+        target.css("visibility", "hidden");
+        setTimeout(() => {
+            target.css("opacity", "0");
+        }, 10);
+    }
+}
