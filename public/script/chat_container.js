@@ -34,14 +34,6 @@ init();
  */
 function create_chat_list(chat_list, not_read_cnt, seq, username){
     let num = 1; // 순서
-    /* let chat_result = "<div class='chat_list_top_div'><div class='chat_username'><span>" + username + "</span>";
-    if(not_read_cnt > 0){
-        chat_result += "<span class='not_read_cnt'>+ " + not_read_cnt + "</span></div>";
-    }else{
-        chat_result += "</div>";
-    }
-    chat_result += "<div><ion-icon name='add-circle-outline' class='add_chat'></ion-icon></div></div>"
-                + "<div class='chat_list_div'>"; */
     let chat_result = "";
     for(let chat of chat_list){
         let CHAT_ROOM_NAME = chat.CHAT_ROOM_NAME;
@@ -81,7 +73,7 @@ function create_chat_list(chat_list, not_read_cnt, seq, username){
         chat_result += "</div>"
                     + "<div class='chat_list_data2'>";
         if(CONTENTS) {
-            chat_result += "<span class='chat_summary'>" + CONTENTS + "</span>"; 
+            chat_result += "<span class='chat_summary'>" + escapeFunc(CONTENTS) + "</span>"; 
         }else{
             chat_result += "<span class='chat_summary'> </span>"; 
         }
@@ -167,10 +159,10 @@ function create_chat_container(chat_contents, div){
         }
 
         if(MINE_DIV == 'sys'){
-            chat_result += "<div class='system_box'><span class='system_box_span'>" + CONTENTS + "</span></div>"; 
+            chat_result += "<div class='system_box'><span class='system_box_span'>" + escapeFunc(CONTENTS) + "</span></div>"; 
         }else if(MINE_DIV == 'mine'){
             chat_result += "<div class='my_chat_box'>"; 
-            chat_result += "<span>"+ CONTENTS + "</span>";
+            chat_result += "<span>"+ escapeFunc(CONTENTS) + "</span>";
             chat_result += "<em>" + REG_TIME +"</em>";
             if(UNREAD_NUM != 0){
                 chat_result += "<em class='em_unread_cnt'>" + UNREAD_NUM +"</em>";
@@ -180,7 +172,7 @@ function create_chat_container(chat_contents, div){
             if(temp_reg_id != REG_ID || temp_reg_time != REG_TIME){ // 사용자명 태그 생성 (사용자 ID가 다른 경우, 채팅 시간이 다른 경우)
                 chat_result += "<div class='chat_user_box'>" + USERNAME + "</div>"; 
             }
-            chat_result += "<div class='chat_box'><span>" + CONTENTS + "</span>"
+            chat_result += "<div class='chat_box'><span>" + escapeFunc(CONTENTS) + "</span>"
             chat_result += "<em>" + REG_TIME +"</em>";
             if(UNREAD_NUM != 0){
                 chat_result += "<em class='em_yellow'>" + UNREAD_NUM +"</em>";
@@ -292,22 +284,25 @@ function refresh_not_read_cnt(){
  */
 function send_chat(){
     let contents = $('#chat_input').val();
-    let seq = master_seq;
-    $.ajax({
-        url : "/chat_container/insert",
-        type : "POST",
-        dataType : "JSON",
-        data : {"master_seq" : seq,
-                "contents" : contents}
-    })
-    .done(function (json){
-        let json_data = JSON.parse(JSON.stringify(json));
-        let chk = json_data.chk;
-        setChat(seq, 0);
-    })
-    .fail(function (xhr, status, errorThrown){
-        alert("Ajax failed")
-    })
+    if(contents.length > 0){
+        let seq = master_seq;
+        $.ajax({
+            url : "/chat_container/insert",
+            type : "POST",
+            dataType : "JSON",
+            data : {"master_seq" : seq,
+                    "contents" : contents}
+        })
+        .done(function (json){
+            let json_data = JSON.parse(JSON.stringify(json));
+            let chk = json_data.chk;
+            setChat(seq, 0);
+        })
+        .fail(function (xhr, status, errorThrown){
+            alert("Ajax failed")
+        })
+    }
+    
 }
 
 $(document).on("click",".add_chat",function(e){ 
@@ -452,4 +447,17 @@ function effect_hide(id) {
             target.css("opacity", "0");
         }, 10);
     }
+}
+
+/**
+ * 해당 문자열의 특수문자 처리를 한다.
+ * @param {String} str 특수문자 처리될 문자열
+ * @returns {String} escapedStr 특수문자 처리된 문자열
+ */
+function escapeFunc(str) {
+    // '<br>'을 제외하고 '<'와 '>'를 이스케이핑한다.
+    let escapedStr = str.replace(/<(?!br\s*\/?>)[^>]*>/gi, function(match) {
+        return match.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    });
+    return escapedStr;
 }
