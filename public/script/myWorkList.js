@@ -1,14 +1,11 @@
-const zooms = document.querySelectorAll('.zoom');
-const modal = document.getElementById('myModal');
-const modalContent = document.querySelector('.modal-content');
 let select_page = '';
 
 window.addEventListener('load', function() {
-    var allElements = document.getElementsByTagName('*');
+    let allElements = document.getElementsByTagName('*');
     Array.prototype.forEach.call(allElements, function(el) {
-        var includePath = el.dataset.includePath;
+        let includePath = el.dataset.includePath;
         if (includePath) {
-            var xhttp = new XMLHttpRequest();
+            let xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     el.outerHTML = this.responseText;
@@ -21,49 +18,49 @@ window.addEventListener('load', function() {
 });
 
 function init(){
-    let workList = ['', 'Animated_Action_Menu', 'Animated_Circular_Progress_Bar', 'Animated_Gaming_Website', 'Animated_Search_Box', 'Color_Switch_Page'
-        , 'Countdown_Flip_Timer', 'Custom_Input_Range_Slider', 'Dashboard_Mokyang', 'Dashboard_kt_M-BcN', 'Dashboard_Sidebar_Menu', 'Delete_Button_Animation_Effects'
-        , 'Dynamic_Expandable_Content_Only_CSS', 'Highlighter_effect(Pseudo_Element)', 'Infinite_Ticker_CSS_Animation_Effects', 'Infinity_scroll'
-        , 'Input_Field_Gradient_Border_Animation_Effects', 'MapData_To_Text_File', 'Page_Progress_Bar', 'Playing_Card_Hover_Effect', 'Progress_Bar'
-        , 'Slide_Transitions', 'Spinning_Wheel_Game', 'Typing_JS'
-    ];
+    let xmlhttp = new XMLHttpRequest();
+    let url = "/myWorkFolder/workList.json";
+    let json_data;
 
-    let list_output = '';
-
-    for(let i = 1; i < workList.length; i++){
-        let work = workList[i];
-        list_output += '<div class="item list' + i + '" value="/myWorkFolder/' + work +'/">"'
-            + '<span class="zoom">'
-            + ' <ion-icon name="expand-outline"></ion-icon>'
-            + '</span>'
-            + '<span class="list_name">' + work.replaceAll('_', ' ') + '</span>'
-            + '<img src="/myWorkFolder/' + work + '/screenshot_gif.gif" class="gif_img"></img>'
-            + '</div>';
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            json_data = JSON.parse(xmlhttp.responseText);
+            setWorkList(json_data);
+        }
     }
-
-    $('#workListContainer').html(list_output);
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+    
 }
 
 init();
 
-$('.zoom').off().on('click', function () {
-    $('#myModal').css('display','block');
-    $(this).closest('.item').find('img').clone().addClass('zoom_img').appendTo('.modal-content');
-    let e = window.event;
-    e.stopPropagation();
-})
+function setWorkList(json_data){
+    let list_output = '';
+    let data_length = Object.keys(json_data).length;
+    for(let i = 0; i < data_length; i++){
+        let work = json_data[i];
+        let img_data = new Image();
+        img_data.src = `/myWorkFolder/${work}/screenshot_gif.gif`;
 
-$('.close').on('click', () => {
-    $('#myModal').css('display','none');
-    $('.modal-content').html('');
-});
-
-$(window).on('click', (e) => {
-    if(e.target.id === 'myModal'){
-        $('#myModal').css('display','none');
-        $('.modal-content').html('');
+        img_data.onload = function() {
+            let calc_width = img_data.width / img_data.height * 23000;
+            let temp = Math.ceil(calc_width);
+            let width_result = temp / 100;
+    
+            list_output += `
+                <div class="item list${i + 1}" value="/myWorkFolder/${work}/" style="width:${width_result}px;">
+                    <span class="list_name">${work.replaceAll('_', ' ')}</span>
+                    <img src="/myWorkFolder/${work}/screenshot_gif.gif" class="gif_img">
+                </div>`;
+            
+            if (i === data_length - 1) {
+                $('#workListContainer').html(list_output);
+            }
+        };
     }
-});
+
+}
 
 $(document).on('click', '.item', function (e) {
     let temp_url = $(this).attr('value');
