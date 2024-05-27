@@ -38,28 +38,45 @@ init();
 function setWorkList(json_data){
     let list_output = '';
     let data_length = Object.keys(json_data).length;
-    for(let i = 0; i < data_length; i++){
-        let work = json_data[i];
+    let currentIndex = 0;  // 현재 로드 중인 이미지의 인덱스
+
+    function loadImage(index) {
+        if (index >= data_length) {
+            // 모든 이미지가 로드되었을 때
+            $('#workListContainer').html(list_output);
+            return;
+        }
+
+        let work = json_data[index];
         let img_data = new Image();
         img_data.src = `/myWorkFolder/${work}/screenshot_gif.gif`;
 
         img_data.onload = function() {
-            let calc_width = img_data.width / img_data.height * 23000;
+            let calc_width = img_data.width / img_data.height * 2300000;
             let temp = Math.ceil(calc_width);
-            let width_result = temp / 100;
-    
+            let width_result = temp / 10000;
+
+            // 배경 이미지 설정
+            let backgroundImageStyle = `background-image: url('/myWorkFolder/${work}/screenshot_gif.gif');`;
+
             list_output += `
-                <div class="item list${i + 1}" value="/myWorkFolder/${work}/" style="width:${width_result}px;">
-                    <span class="list_name">${work.replaceAll('_', ' ')}</span>
-                    <img src="/myWorkFolder/${work}/screenshot_gif.gif" class="gif_img">
-                </div>`;
-            
-            if (i === data_length - 1) {
-                $('#workListContainer').html(list_output);
-            }
+            <div class="item list${index + 1}" value="/myWorkFolder/${work}/" style="${backgroundImageStyle} width:${width_result}px; background-size: cover;">
+                <span class="list_name">${work.replaceAll('_', ' ')}</span>
+            </div>`;
+
+            // 다음 이미지 로드
+            loadImage(index + 1);
+        };
+
+        img_data.onerror = function() {
+            console.error(`이미지 로드 실패: ${work}`);
+            // 다음 이미지 로드 (오류 발생 시에도 진행)
+            loadImage(index + 1);
         };
     }
 
+    // 첫 번째 이미지 로드 시작
+    loadImage(currentIndex);
 }
 
 $(document).on('click', '.item', function (e) {
