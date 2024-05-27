@@ -221,14 +221,21 @@ router.post('/login_process', function (request, response) {
         request.session.email = email;
         request.session.username = results[0].USERNAME;
 
-        createLog.insertLog(request, response, 'LOGIN', 'ACT');
-        
-        if(results[0].MASTER_YN == 'Y'){ // 마스터권한
-          request.session.is_master = true;
+        let use_yn = results[0].USE_YN; // 계정 사용 권한 체크
+
+        if(use_yn == 'N'){
+          response.send(`<script type="text/javascript">alert("회원가입 대기중 입니다."); 
+              document.location.href="/login";</script>`);
+        }else{
+          createLog.insertLog(request, response, 'LOGIN', 'ACT');
+          
+          if(results[0].MASTER_YN == 'Y'){ // 마스터권한
+            request.session.is_master = true;
+          }
+          request.session.save(function () {
+            response.redirect(`/`);
+          });
         }
-        request.session.save(function () {
-          response.redirect(`/`);
-        });
       } else {
         response.send(`<script type="text/javascript">alert("로그인 정보가 일치하지 않습니다."); 
               document.location.href="/login";</script>`);
