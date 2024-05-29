@@ -33,18 +33,18 @@ function load_log(){
     $('#log_data_container').html(output);
     $('#log_table').DataTable({
         order: [[0, 'desc']],
-        pageLength: 10
+        pageLength: 25
     });
 
     function formatResult(data) {
-        let html = "<table id='log_table'><thead><tr><th>SEQ</th><th>EMAIL</th><th>USERNAME</th><th>EVENT</th><th>EVENT_IP</th><th>REGDAY</th></tr></thead><tbody>";
+        let html = "<table id='log_table'><thead><tr><th class='f_8'>SEQ</th><th class='f_8'>EMAIL</th><th class='f_8'>USERNAME</th><th class='f_8'>EVENT</th><th class='f_8'>EVENT_IP</th><th class='f_8'>REGDAY</th></tr></thead><tbody>";
         for(let obj of data){
-            html += "<tr><td class='td_w45 f_8'>" + obj.SEQ  + "</td>";   
-            html += "<td class='td_w45 f_8'>" + obj.EMAIL  + "</td>";   
-            html += "<td class='td_w45 f_8'>" + obj.USERNAME  + "</td>";   
-            html += "<td class='td_w45 f_8'>" + obj.EVENT  + "</td>";   
-            html += "<td class='td_w45 f_8'>" + obj.EVENT_IP  + "</td>";   
-            html += "<td class='td_w45 f_8'>" + obj.REGDAY  + "</td></tr>";        
+            html += "<tr><td class='td_w45 f_6'>" + obj.SEQ  + "</td>";   
+            html += "<td class='td_w45 f_6'>" + obj.EMAIL  + "</td>";   
+            html += "<td class='td_w45 f_6'>" + obj.USERNAME  + "</td>";   
+            html += "<td class='td_w45 f_6'>" + obj.EVENT  + "</td>";   
+            html += "<td class='td_w45 f_6'>" + obj.EVENT_IP  + "</td>";   
+            html += "<td class='td_w45 f_6'>" + obj.REGDAY  + "</td></tr>";        
         }
         html += "</tbody></table>";
         return html;
@@ -61,21 +61,21 @@ function load_member(){
     });
 
     function formatResult(data) {
-        let html = "<table id='member_table'><thead><tr><th>MEMBER_SEQ</th><th>EMAIL</th><th>USERNAME</th><th>Master Authority</th><th>Use Authority</th></tr></thead><tbody>";
+        let html = "<table id='member_table'><thead><tr><th class='f_10'>MEMBER_SEQ</th><th class='f_10'>EMAIL</th><th class='f_10'>USERNAME</th><th class='f_10'>Master Authority</th><th class='f_10'>Use Authority</th></tr></thead><tbody>";
         for(let obj of data){
             html += "<tr><td class='td_w45 f_8'>" + obj.MEMBER_SEQ  + "</td>";   
             html += "<td class='td_w45 f_8'>" + obj.EMAIL  + "</td>";   
             html += "<td class='td_w45 f_8'>" + obj.USERNAME  + "</td>";   
 
             if(obj.MEMBER_SEQ == '1'){
-                html += "<td class='td_w45 f_8'>Master</td>";
-                html += "<td class='td_w45 f_8'>Master</td></tr>";
+                html += "<td class='td_w45 td_center f_8'>Master</td>";
+                html += "<td class='td_w45 td_center f_8'>Master</td></tr>";
             }else{
-                if(obj.MASTER_YN == 'Y') html += "<td class='td_w45 f_8'><button type='button' class='btn revoke_btn revoke_master_btn' data-memseq='" + obj.MEMBER_SEQ +"' data-username='" + obj.USERNAME +"'>Revoke</button></td>";
-                else html += "<td class='td_w45 f_8'><button type='button' class='btn grant_btn grant_master_btn' data-memseq='" + obj.MEMBER_SEQ +"' data-username='" + obj.USERNAME +"'>Grant</button></td>";
+                if(obj.MASTER_YN == 'Y') html += "<td class='td_w45 td_center f_8'><button type='button' class='btn revoke_btn revoke_master_btn' data-memseq='" + obj.MEMBER_SEQ +"' data-username='" + obj.USERNAME +"'>Revoke</button></td>";
+                else html += "<td class='td_w45 td_center f_8'><button type='button' class='btn grant_btn grant_master_btn' data-memseq='" + obj.MEMBER_SEQ +"' data-username='" + obj.USERNAME +"'>Grant</button></td>";
 
-                if(obj.USE_YN == 'Y') html += "<td class='td_w45 f_8'><button type='button' class='btn revoke_btn revoke_use_btn' data-memseq='" + obj.MEMBER_SEQ +"' data-username='" + obj.USERNAME +"'>Revoke</button></td></tr>";
-                else html += "<td class='td_w45 f_8'><button type='button' class='btn grant_btn grant_use_btn' data-memseq='" + obj.MEMBER_SEQ +"' data-username='" + obj.USERNAME +"'>Grant</button></td></tr>";
+                if(obj.USE_YN == 'Y') html += "<td class='td_w45 td_center f_8'><button type='button' class='btn revoke_btn revoke_use_btn' data-memseq='" + obj.MEMBER_SEQ +"' data-username='" + obj.USERNAME +"'>Revoke</button></td></tr>";
+                else html += "<td class='td_w45 td_center f_8'><button type='button' class='btn grant_btn grant_use_btn' data-memseq='" + obj.MEMBER_SEQ +"' data-username='" + obj.USERNAME +"'>Grant</button></td></tr>";
             }
         }
         html += "</tbody></table>";

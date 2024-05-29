@@ -74,8 +74,18 @@ table.dataTable>thead>tr>th, table.dataTable>thead>tr>td, table.dataTable tbody 
     width: 300px;
 }
 
+.f_10{
+    font-size: 1rem;
+    font-weight: bold;
+}
+
 .f_8{
     font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.f_6{
+    font-size: 0.6rem;
     font-weight: bold;
 }
 
@@ -129,6 +139,7 @@ table.dataTable>thead>tr>th, table.dataTable>thead>tr>td, table.dataTable tbody 
 /* 로딩 */
 
 .btn{
+    width: 70px;
     border-radius: 5px;
     font-size: 13px;
     padding: 2px 14px;
@@ -159,7 +170,14 @@ table.dataTable>thead>tr>th, table.dataTable>thead>tr>td, table.dataTable tbody 
 }
 
 #log_data_container, #member_data_container{
-    width: 1400px;
+    width: 1000px;
     margin: 0 auto;
-}  
-  
+}
+
+.log_history, .manage_member{
+    margin-bottom: 20px;
+}
+
+.td_center{
+    text-align: center;
+}
