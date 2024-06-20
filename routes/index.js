@@ -7,26 +7,25 @@ let authCheck = require('../public/script/authCheck.js');
 // mariaDB Connection
 const maria = require('../ext/conn_mariaDB');
 
-let sql = "SELECT EMAIL, USERNAME, MASTER_YN FROM `MEMBER`";
-let sql_data;
-maria.query(sql, function (err, results) {
-  if (err) {
-      console.log(err);
-      res.render('error', {error: err});
-  }
-  sql_data = {
-      "results": results
-  }
-});
-
 /* GET home page. */
-router.get('/main', function(req, res, next) {
+router.get('/main', function (req, res, next) {
+  let sql = "SELECT EMAIL, USERNAME, MASTER_YN, USE_YN FROM `MEMBER` ORDER BY MEMBER_SEQ";
+  let sql_data;
+  maria.query(sql, function (err, results) {
+    if (err) {
+      console.log(err);
+      res.render('error', { error: err });
+    }
+    sql_data = {
+      "results": results
+    }
+  });
   res.render('index', sql_data);
 });
 
 /* POST main */
-router.post('/main', function(req, res, next) {
-  let master_yn = {"master_yn" : authCheck.isMaster(req, res)};
+router.post('/main', function (req, res, next) {
+  let master_yn = { "master_yn": authCheck.isMaster(req, res) };
   res.json(master_yn);
 });
 

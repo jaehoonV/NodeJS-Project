@@ -1,6 +1,7 @@
 const http = require('http');
 const express = require('express');
 const session = require('express-session');
+const cors = require('cors');
 const FileStore = require('session-file-store')(session);
 const favicon = require('serve-favicon');
 const path = require('path');
@@ -28,6 +29,9 @@ let caesar = require('./routes/caesar');
 app.use('/node_modules', express.static(path.join(__dirname, '/node_modules')));
 app.use(favicon(path.join(__dirname, 'public',  'favicon.ico')));
 app.use(express.urlencoded({extended: true}));
+app.use(cors({
+  origin: '*', // 모든 출처 허용
+}));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static("views"));
