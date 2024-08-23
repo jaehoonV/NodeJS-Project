@@ -138,17 +138,7 @@ export function getDefualtDate(date) {
 
     if(cal_minus > 2) cal_minus = 2; // 날짜 계산이 2일을 초과하면 2로 세팅
 
-    let temp_date = new Date(sel_day.setDate(sel_day.getDate() - cal_minus));
-    cal_minus = 0;
-    if(temp_date.getDay() == 0) {
-        cal_minus += 2; // 일요일
-        weekend_yn = "Y";
-    } else if(temp_date.getDay() == 6) {
-        cal_minus++; // 토요일
-        weekend_yn = "Y";
-    }
-
-    let defualt_date = new Date(temp_date.setDate(temp_date.getDate() - cal_minus));
+    let defualt_date = new Date(sel_day.setDate(sel_day.getDate() - cal_minus));
     let format_defualt_date = "".concat(defualt_date.getFullYear(), pad(defualt_date.getMonth() + 1, 2), pad(defualt_date.getDate(), 2));
 
     return {'format_defualt_date' : format_defualt_date, 'weekend_yn' : weekend_yn};
@@ -253,6 +243,67 @@ export function searchDisparityDeadCross(date_list, average_5, average_20, avera
     return deadCrossList;
 }
 /* searchDisparityDeadCross */
+
+/* calculateParabolicSAR */
+export function calculateParabolicSAR(date_list, lo_hi_list){
+    let parabolicSAR = [];
+    let trend = 1; // 초기 트렌드를 상승으로 가정 (1: 상승, -1: 하락)
+    let af = 0.02; // 초기 가속 팩터
+    const af_increment = 0.02;
+    const af_max = 0.2;
+
+    let ep = lo_hi_list[0][1]; // 초기 EP (Extreme Point), 첫 번째 고가로 설정
+
+    // 초기 SAR 설정 (과거 주가 데이터를 기반으로)
+    let sar = lo_hi_list[0][0]; // 첫 번째 저가로 설정
+
+    for (let i = 1; i < date_list.length; i++) {
+        const high = lo_hi_list[i][1];
+        const low = lo_hi_list[i][0];
+
+        // 현재 SAR 값을 저장 (날짜와 함께)
+        parabolicSAR.push([ date_list[i - 1], Number(sar.toFixed(0)) ]);
+
+        // SAR 업데이트
+        if (trend === 1) { // 상승 추세
+            sar = sar + af * (ep - sar);
+
+            if (high > ep) { // 새로운 EP 발견
+                ep = high;
+                af = Math.min(af + af_increment, af_max);
+            }
+
+            if (low < sar) { // 추세 반전
+                trend = -1;
+                sar = ep;
+                ep = low;
+                af = 0.02; // AF 재설정
+            }
+        } else { // 하락 추세
+            sar = sar - af * (sar - ep);
+
+            if (low < ep) { // 새로운 EP 발견
+                ep = low;
+                af = Math.min(af + af_increment, af_max);
+            }
+
+            if (high > sar) { // 추세 반전
+                trend = 1;
+                sar = ep;
+                ep = high;
+                af = 0.02; // AF 재설정
+            }
+        }
+    }
+
+    // 마지막 SAR 값을 저장 (날짜와 함께)
+    parabolicSAR.push([ date_list[date_list.length - 1], Number(sar.toFixed(0)) ]);
+
+    console.log("Parabolic SAR 계산 완료");
+    console.log(parabolicSAR);
+    return parabolicSAR.slice(119);
+}
+/* calculateParabolicSAR */
 
 /* lineData */
 export function lineData(candle_list) { return candle_list.map(d => { return { x: d.x, y: d.c} }) }

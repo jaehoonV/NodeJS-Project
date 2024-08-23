@@ -11,6 +11,7 @@ $(function () {
     if (pop_data_itemnm.length > 0 && pop_data_months.length > 0) {
         $("#itemnm").val(pop_data_itemnm);
         $("#months").val(pop_data_months);
+
         monthChartSearch(pop_data_itemnm, pop_data_months);
     }
 });
@@ -53,13 +54,7 @@ function monthChartSearch(item_nm, months) {
 
     const itmsNm = item_nm;
 
-    url_ += "?serviceKey=" + serviceKey;
-    url_ += "&numOfRows=" + numOfRows;
-    url_ += "&pageNo=" + pageNo;
-    url_ += "&resultType=" + resultType;
-    url_ += "&beginBasDt=" + beginBasDt;
-    url_ += "&endBasDt=" + endBasDt;
-    if (itmsNm != "") url_ += "&itmsNm=" + itmsNm;
+    url_ += `?serviceKey=${serviceKey}&numOfRows=${numOfRows}&pageNo=${pageNo}&resultType=${resultType}&beginBasDt=${beginBasDt}&endBasDt=${endBasDt}&itmsNm=${encodeURIComponent(itmsNm)}`;
 
     console.log(url_);
 
@@ -120,12 +115,12 @@ function makeMonthChart(data) {
             lopr_list.push(lopr);
             clpr_list.push(clpr);
 
-            lo_hi_list.push(new Array(lopr, hipr));
             mkp_clpr_list.push(new Array(mkp, clpr));
             candle_list.push([new Date(basDt.substring(0, 4) + '-' + basDt.substring(4, 6) + '-' + basDt.substring(6, 8)).setHours(0, 0, 0, 0), mkp, hipr, lopr, clpr]);
             candle_list_volume.push([new Date(basDt.substring(0, 4) + '-' + basDt.substring(4, 6) + '-' + basDt.substring(6, 8)).setHours(0, 0, 0, 0), trqu]);
         }
 
+        lo_hi_list.push(new Array(lopr, hipr));
         date_for_ave_list.push(new Date(basDt.substring(0, 4) + '-' + basDt.substring(4, 6) + '-' + basDt.substring(6, 8)).setHours(0, 0, 0, 0));
         clpr_for_ave_list.push(clpr);
     }
@@ -260,8 +255,11 @@ function makeMonthChart(data) {
     /* searchDisparityDeadCross */
     let disparityDeadCross_list = func.searchDisparityDeadCross(date_for_ave_list.slice(119), average_5.slice(119), average_20.slice(119), average_60.slice(119), average_120.slice(119));
     
+    /* calculateParabolicSAR */
+    let parabolicSAR_list = func.calculateParabolicSAR(date_for_ave_list, lo_hi_list);
+
     /* createChart */
-    createChart(title, date_list, mkp_list, hipr_list, lopr_list, clpr_list, lo_hi_list, mkp_clpr_list, min_lopr, max_hipr, candle_list, candle_list_volume, bb_up_list.slice(119), bb_down_list.slice(119), average_5.slice(119), average_20.slice(119), average_60.slice(119), average_120.slice(119), baseLine.slice(119), transitionLine.slice(119), goldenCross_list, deadCross_list, bt_goldenCross_list, bt_deadCross_list, disparityGoldenCross_list, disparityDeadCross_list);
+    createChart(title, date_list, mkp_list, hipr_list, lopr_list, clpr_list, lo_hi_list, mkp_clpr_list, min_lopr, max_hipr, candle_list, candle_list_volume, bb_up_list.slice(119), bb_down_list.slice(119), average_5.slice(119), average_20.slice(119), average_60.slice(119), average_120.slice(119), baseLine.slice(119), transitionLine.slice(119), goldenCross_list, deadCross_list, bt_goldenCross_list, bt_deadCross_list, disparityGoldenCross_list, disparityDeadCross_list, parabolicSAR_list);
 
     /* createChart 이평선, 기준선, 전환선 */
     //createChart_average(title, date_for_ave_list.slice(119), average_5.slice(119), average_20.slice(119), average_60.slice(119), average_120.slice(119), baseLine.slice(119), transitionLine.slice(119), goldenCross_list, deadCross_list, bt_goldenCross_list, bt_deadCross_list, min_lopr, max_hipr, bb_up_list.slice(119), bb_down_list.slice(119), disparityGoldenCross_list, disparityDeadCross_list);
@@ -269,7 +267,7 @@ function makeMonthChart(data) {
 }
 
 /* createChart */
-function createChart(title, date_list, mkp_list, hipr_list, lopr_list, clpr_list, lo_hi_list, mkp_clpr_list, min_lopr, max_hipr, candle_list, candle_list_volume, bb_up_list, bb_down_list, average_5, average_20, average_60, average_120, baseLine, transitionLine, goldenCross_list, deadCross_list, bt_goldenCross_list, bt_deadCross_list, disparityGoldenCross_list, disparityDeadCross_list) {
+function createChart(title, date_list, mkp_list, hipr_list, lopr_list, clpr_list, lo_hi_list, mkp_clpr_list, min_lopr, max_hipr, candle_list, candle_list_volume, bb_up_list, bb_down_list, average_5, average_20, average_60, average_120, baseLine, transitionLine, goldenCross_list, deadCross_list, bt_goldenCross_list, bt_deadCross_list, disparityGoldenCross_list, disparityDeadCross_list, parabolicSAR_list) {
     const groupingUnits = [[
         'week',                         // unit name
         [1]                             // allowed multiples
@@ -353,9 +351,9 @@ function createChart(title, date_list, mkp_list, hipr_list, lopr_list, clpr_list
             upColor: '#e00400', // 하락 색상
             color: '#003ace', // 상승 색상
             yAxis: 0,
-            dataGrouping: {
+            /* dataGrouping: {
                 units: groupingUnits
-            },
+            }, */
             tooltip: {
                 pointFormatter: function() {
                     let s = '';
@@ -376,9 +374,9 @@ function createChart(title, date_list, mkp_list, hipr_list, lopr_list, clpr_list
             data: candle_list_volume,
             showInLegend: false,
             yAxis: 1,
-            dataGrouping: {
+            /* dataGrouping: {
                 units: groupingUnits
-            },
+            }, */
             tooltip: {
                 pointFormatter: function() {
                     let s = '';
@@ -398,9 +396,9 @@ function createChart(title, date_list, mkp_list, hipr_list, lopr_list, clpr_list
             data: func.lineData3(candle_list, average_20),
             showInLegend: false,
             yAxis: 0,
-            dataGrouping: {
+            /* dataGrouping: {
                 units: groupingUnits
-            },
+            }, */
             marker: {
                 width: 2,
                 height: 2,
@@ -425,9 +423,9 @@ function createChart(title, date_list, mkp_list, hipr_list, lopr_list, clpr_list
             data: func.areaData(candle_list, bb_up_list, bb_down_list),
             showInLegend: false,
             yAxis: 0,
-            dataGrouping: {
+            /* dataGrouping: {
                 units: groupingUnits
-            },
+            }, */
             lineWidth: 0,
             color: '#f8ebb180',
             tooltip: {
@@ -440,9 +438,9 @@ function createChart(title, date_list, mkp_list, hipr_list, lopr_list, clpr_list
             name: '5Days MA',
             data: func.lineData3(candle_list, average_5),
             yAxis: 2,
-            dataGrouping: {
+            /* dataGrouping: {
                 units: groupingUnits
-            },
+            }, */
             marker: {
                 width: 2,
                 height: 2,
@@ -467,9 +465,9 @@ function createChart(title, date_list, mkp_list, hipr_list, lopr_list, clpr_list
             name: '20Days MA',
             data: func.lineData3(candle_list, average_20),
             yAxis: 2,
-            dataGrouping: {
+            /* dataGrouping: {
                 units: groupingUnits
-            },
+            }, */
             marker: {
                 width: 2,
                 height: 2,
@@ -494,9 +492,9 @@ function createChart(title, date_list, mkp_list, hipr_list, lopr_list, clpr_list
             name: '60Days MA',
             data: func.lineData3(candle_list, average_60),
             yAxis: 2,
-            dataGrouping: {
+            /* dataGrouping: {
                 units: groupingUnits
-            },
+            }, */
             marker: {
                 width: 2,
                 height: 2,
@@ -521,9 +519,9 @@ function createChart(title, date_list, mkp_list, hipr_list, lopr_list, clpr_list
             name: '120Days MA',
             data: func.lineData3(candle_list, average_120),
             yAxis: 2,
-            dataGrouping: {
+            /* dataGrouping: {
                 units: groupingUnits
-            },
+            }, */
             marker: {
                 width: 2,
                 height: 2,
@@ -548,9 +546,9 @@ function createChart(title, date_list, mkp_list, hipr_list, lopr_list, clpr_list
             name: 'Base Line',
             data: func.lineData3(candle_list, baseLine),
             yAxis: 2,
-            dataGrouping: {
+            /* dataGrouping: {
                 units: groupingUnits
-            },
+            }, */
             marker: {
                 width: 2,
                 height: 2,
@@ -575,9 +573,9 @@ function createChart(title, date_list, mkp_list, hipr_list, lopr_list, clpr_list
             name: 'Transition Line',
             data: func.lineData3(candle_list, transitionLine),
             yAxis: 2,
-            dataGrouping: {
+            /* dataGrouping: {
                 units: groupingUnits
-            },
+            }, */
             marker: {
                 width: 2,
                 height: 2,
@@ -602,13 +600,13 @@ function createChart(title, date_list, mkp_list, hipr_list, lopr_list, clpr_list
             name: 'GoldenCross',
             data: goldenCross_list,
             yAxis: 2,
-            dataGrouping: {
+            /* dataGrouping: {
                 units: groupingUnits
-            },
+            }, */
             marker: {
                 symbol: 'triangle',
                 fillColor: '#808000',
-                radius: 7,
+                radius: 5,
             },
             color: '#808000',
             tooltip: {
@@ -630,13 +628,13 @@ function createChart(title, date_list, mkp_list, hipr_list, lopr_list, clpr_list
             name: 'BT-GoldenCross',
             data: bt_goldenCross_list,
             yAxis: 2,
-            dataGrouping: {
+            /* dataGrouping: {
                 units: groupingUnits
-            },
+            }, */
             marker: {
                 symbol: 'triangle',
                 fillColor: '#adad00',
-                radius: 7,
+                radius: 5,
             },
             color: '#adad00',
             tooltip: {
@@ -658,13 +656,13 @@ function createChart(title, date_list, mkp_list, hipr_list, lopr_list, clpr_list
             name: 'DisparityGoldenCross',
             data: disparityGoldenCross_list,
             yAxis: 2,
-            dataGrouping: {
+            /* dataGrouping: {
                 units: groupingUnits
-            },
+            }, */
             marker: {
                 symbol: 'triangle',
                 fillColor: '#ffff00',
-                radius: 7,
+                radius: 5,
             },
             color: '#ffff00',
             tooltip: {
@@ -686,13 +684,13 @@ function createChart(title, date_list, mkp_list, hipr_list, lopr_list, clpr_list
             name: 'DeadCross',
             data: deadCross_list,
             yAxis: 2,
-            dataGrouping: {
+            /* dataGrouping: {
                 units: groupingUnits
-            },
+            }, */
             marker: {
                 symbol: 'triangle-down',
                 fillColor: '#a5a5a5',
-                radius: 7,
+                radius: 5,
             },
             color: '#a5a5a5',
             tooltip: {
@@ -714,13 +712,13 @@ function createChart(title, date_list, mkp_list, hipr_list, lopr_list, clpr_list
             name: 'BT-DeadCross',
             data: bt_deadCross_list,
             yAxis: 2,
-            dataGrouping: {
+            /* dataGrouping: {
                 units: groupingUnits
-            },
+            }, */
             marker: {
                 symbol: 'triangle-down',
                 fillColor: '#585858',
-                radius: 7,
+                radius: 5,
             },
             color: '#585858',
             tooltip: {
@@ -742,13 +740,13 @@ function createChart(title, date_list, mkp_list, hipr_list, lopr_list, clpr_list
             name: 'DisparityDeadCross',
             data: disparityDeadCross_list,
             yAxis: 2,
-            dataGrouping: {
+            /* dataGrouping: {
                 units: groupingUnits
-            },
+            }, */
             marker: {
                 symbol: 'triangle-down',
                 fillColor: '#1d1d1d',
-                radius: 7,
+                radius: 5,
             },
             color: '#1d1d1d',
             tooltip: {
@@ -756,6 +754,34 @@ function createChart(title, date_list, mkp_list, hipr_list, lopr_list, clpr_list
                     let s = '';
                     if(this.y !== 0){
                         s += '<span style="color:' + this.color + '"> \u25CF</span> DisparityDeadCross : ' + func.dateForamt2(this.x);
+                    }
+                    return s;
+                },
+            },
+            states: {
+                inactive: {
+                  opacity: 1
+              }
+            },
+        },{
+            type: 'scatter',
+            name: 'ParabolicSAR',
+            data: parabolicSAR_list,
+            yAxis: 0,
+            /* dataGrouping: {
+                units: groupingUnits
+            }, */
+            marker: {
+                symbol: 'circle',
+                fillColor: '#ed2969',
+                radius: 2,
+            },
+            color: '#ed2969',
+            tooltip: {
+                pointFormatter: function() {
+                    let s = '';
+                    if(this.y !== 0){
+                        s += '<span style="color:' + this.color + '"> \u25CF</span> ParabolicSAR : ' + func.dateForamt2(this.x);
                     }
                     return s;
                 },

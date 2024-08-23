@@ -1,8 +1,6 @@
 import Queue from "./Class_queue.js"
 import * as func from "./basic_func.js"
 
-$('#side_stock').addClass('li_active');
-
 const url = "https://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService/getStockPriceInfo";
 let popup_chart;
 $('#likeItmsNm, #basDt').on("keydown", function(e){
@@ -49,7 +47,7 @@ function stockSearch(){
     url_ += "&pageNo=" + pageNo;
     url_ += "&resultType=" + resultType;
     url_ += "&basDt=" + basDt;
-    if (likeItmsNm != "") url_ += "&likeItmsNm=" + likeItmsNm;
+    if (likeItmsNm != "") url_ += "&likeItmsNm=" + encodeURIComponent(likeItmsNm);
 
     console.log(url_);
 
@@ -81,7 +79,7 @@ function stockSearch2(){
     url_ += "&resultType=" + resultType;
     url_ += "&beginBasDt=" + beginBasDt;
     url_ += "&endBasDt=" + endBasDt;
-    if (itmsNm != "") url_ += "&itmsNm=" + itmsNm;
+    if (itmsNm != "") url_ += "&itmsNm=" + encodeURIComponent(itmsNm);
 
     console.log(url_);
 
