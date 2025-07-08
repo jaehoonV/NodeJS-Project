@@ -1,0 +1,361 @@
+﻿@charset "utf-8";
+
+/****
+ * 헤더시작
+ ****/
+
+#wrap_header {
+	min-width: 1250px; /*기본 해상도 1280에서 세로 스크롤바 영역-30*/
+	min-width: 1383px; /*기본 해상도 1280에서 세로 스크롤바 영역-30*/
+	z-index: 30;
+	/* Warning: z-index only has an effect if an element is positioned. */
+	position: relative;
+}
+
+#header{left:0;overflow:hidden;position:relative;top:0;padding:0 0 0 200px;}
+
+#header h1 {
+	width: 200px;
+	height: 84px;
+	background: url(../image/top/bg_top2.gif) repeat-x;
+	text-indent: -3000px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#header h1 a {
+	background: url(../image/top/logo_1280.gif) no-repeat;
+	width:196px;height:57px;top:13px;display:block;left:7px;position:absolute;
+}
+
+#gnb {
+	position: relative;
+}
+
+#top_navi_bg {
+	min-height: 84px;
+	width: auto;
+	position: relative;
+/* 	background: url(../image/top/bg_top1.gif) repeat-x; */
+	overflow: hidden;
+	padding-left: 7px;
+}
+
+#navi {
+	width: auto;
+}
+
+/*로그인 정보*/
+#log_info {
+	margin: 13px 0 0 25px;
+	float: left;
+	padding-left: 6px;
+	border-left: 5px solid rgb(204, 204, 204);
+}
+
+#log_info > span {
+font-weight: bold;
+text-overflow: "...";
+text-overflow: ellipsis;
+max-width: 280px;
+display: inline-block;
+overflow: hidden;
+white-space: nowrap;
+vertical-align: middle;
+}
+#log_info .link{text-decoration: none;}
+#log_info .proj_title{font-size: 1.3em;padding: 4px 0px;text-overflow: ellipsis;text-overflow: "...";}
+
+/*유틸메뉴 시작*/
+#top_area {
+	height: 43px;
+	background: url(../image/top/bg_shadow.gif) no-repeat;
+	background-position: 250px 100%;
+}
+
+#util_menu {
+	float: right;
+	margin: 16px 10px 0 0;
+}
+
+#util_menu dd {
+	float: left;
+	height: 22px;
+	background: url(../image/top/btn_line.gif) no-repeat;
+	background-position: 100% 50%;
+}
+
+#util_menu dd.non-bg {
+	background: none;
+	background-position: 0 0;
+}
+
+#util_menu dd > a {
+	height: 22px;
+	line-height: 22px;
+	display: block;
+	padding: 0 7px;
+	font-size: 0.8em;
+	color: #747474;
+	letter-spacing: -1px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+#util_menu dd:hover > a {
+    color: #E06900;
+}
+
+#util_menu2 {
+	float: right;
+	margin: 16px 5px 0 0;
+}
+
+#util_menu2 dd {
+	padding-right:2px;
+	display: inline-block;
+	/*text-indent: -3000px;*/
+}
+
+.alim {
+	background-color: #ff8023 !important;
+	color: #FFF !important;
+}
+
+.mypage {
+	background-color: #ff8023;
+	color: #FFF;
+}
+
+.system {
+	background-color: #737373 !important;
+	color: #FFF !important;
+}
+
+.project_overview {
+	background-color: #098eb8 !important;
+	color: #FFF !important;
+	line-height: 12px !important;
+	height: 28px !important;
+	text-align: left !important;
+	padding-top: 2px !important;
+}
+
+/* OLD TOP MENU */
+.sms a{display:block;width:66px;height:19px;background:url(../image/top/btn_sms.gif) no-repeat;/*margin-right: 4px;*/cursor:pointer;}
+.sms.img_en a{width:52px;background:url(../image/top/btn_sms_en.gif) no-repeat;}
+.sms.img_ja a{width:52px;background:url(../image/top/btn_sms_en.gif) no-repeat;}
+.sms.img_zh a{width:52px;background:url(../image/top/btn_sms_en.gif) no-repeat;}
+.alim a{display:block;width:66px;height:21px;background:url(../image/top/btn_notice.png) no-repeat;cursor:pointer;}
+.mypage a{display:block;width:73px;height:21px;background:url(../image/top/btn_mypage.png) no-repeat;}
+.system a{display:block;width:68px;height:21px;background:url(../image/top/btn_system.png) no-repeat;}
+.project_overview a{display:block;width:111px;height:31px;background:url(../image/top/btn_ccrs.png) no-repeat;}
+.message a{display:block;width:60px;height:19px;background-size:19px 19px;padding:0 0 0 20px;background:url(../image/top/icon_email.png) no-repeat;}
+/* OLD TOP MENU */
+
+/*유틸메뉴 끝*/
+
+/*주메뉴 시작*/
+#gnb ul{
+white-space: nowrap;
+word-wrap: break-word;
+overflow: auto;
+width: auto !important;
+}
+
+#gnb ul li {
+	display: inline-block;
+	border-top: 2px solid #FFF;
+}
+#gnb ul li:hover{border-top: 2px solid #098eb8;}
+
+#gnb ul li a {
+	font-size: 1.2em;
+	font-weight: 700;
+	height: 40px;
+	line-height: 39px;
+	display: block;
+	padding: 0 12px;
+	text-indent: 0;
+	background: none;
+	margin-top: -2px;
+	text-transform: uppercase;
+}
+
+/* fix no images! */
+#gnb ul li a.gnb_active,
+#gnb ul li a:hover {
+	color: #098eb8; /* fix no images! */
+}
+
+/*주메뉴 끝*/
+
+/**************************
+	 * 
+	 * 헤더끝
+ 	********************************************************************************************/
+/*해상도 1397 이상에서 설정(1397 = 기본해상도1280+우측메뉴117)*/
+@media all and (min-width:1397px) {
+	/*메인메뉴*/
+	#top_area {
+		display: none;
+	}
+
+	#header{padding:0 117px 0 220px;}
+	.nowrapper #header{padding-right:0;}
+	#header h1{height:70px;}
+	
+	#header h1 a {
+		background: url(../image/top/logo_1600.gif) no-repeat;
+		left:13px;top:3px;
+	}
+	#top_navi_bg {
+		height: 92px;
+		width: auto;
+		position: relative;
+		padding-left: 0;
+/* 		border-bottom: 1px solid #CCC; */
+		border-bottom: 1px solid #098eb8;
+	}
+	#top_navi_left {
+		width: 205px;
+		height: 70px;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	#top_navi_right {
+		width: 205px;
+		height: 70px;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	#gnb {
+		/*padding-left: 20px;*/
+	}
+	#gnb ul li{border-top: none !important;}
+	#gnb ul li a {
+		padding: 0 20px;
+		margin-top: 0;
+		color: white;
+	}
+	/* fix no images! */
+	#gnb ul li a.gnb_active,#gnb ul li a:hover {
+		color: #FFF;
+		background-color:#505050;
+	}
+	#navi{background-color: #098eb8;}
+	
+	#log_info{right: 10px;bottom: 6px;position: absolute;max-width: none;font-size: 1.1em;}
+	#log_info .inbox_count{display: none;}
+	#log_info .proj_title{font-size: 1em;padding: 0;line-height: 1.4em;}
+}
+
+/* FIXED TOP MENU STYLE */
+.cooltopmenu #header{padding:0 117px 0 0px;}
+.cooltopmenu #gnb ul li a.gnb_active,#gnb ul li a.gnb_over {
+	color: #FFF;
+	background-color:#505050;
+}
+.cooltopmenu #navi{
+	background-color: #098eb8;
+	position: fixed;
+	width: 100%;
+	z-index: 60;
+	left: 0;
+	top: 0;
+}
+.cooltopmenu #gnb ul li{border-top: none !important;}
+.cooltopmenu #gnb ul li a {
+	padding: 0 20px;
+	margin-top: 0;
+	color: white;
+}
+.cooltopmenu #wrap_left { z-index: 25; }
+.cooltopmenu #top_area { display: none; }
+
+@media all and (min-width:1397px) {
+	.cooltopmenu #gnb ul {
+		margin-right: 117px;
+	}
+	.nowrapper .cooltopmenu #gnb ul {margin-right:0;}
+}
+/* END FIXED TOP MENU STYLE */
+
+
+
+
+
+
+
+.ui-autocomplete {
+    /*min-height: 100px;*/
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ui-autocomplete-category {
+    font-weight: bold;
+    padding: .2em .4em;
+    margin: .3em 0;
+    line-height: 1.5;
+    color: #ffffff;
+    background-color: #4480c8;
+}
+.ui-autocomplete .ui-state-focus { background: #559cfa !important; color:#ffffff !important; } 
+
+
+.ui-autocomplete.ui-widget-content {
+    background: #ffffff !important
+} 
+/*
+.ui-autocomplete {
+  -moz-border-radius: 0 0 5px 5px;
+  -webkit-border-radius: 0;
+  border-radius: 0 0 5px 5px;
+  width: 190px;
+  max-height: 180px;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #ffffff;
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  border-color: #3baae3;
+}
+.ui-autocomplete ul {
+  list-style: none;
+}
+.ui-autocomplete li {
+  height: 22px;
+  padding: 1px 0px !important;
+  margin: 0;
+  font: bold 12px/36px Arial, Helvetica, sans-serif;
+  white-space: nowrap;
+}
+.ui-autocomplete li:hover {
+  -moz-transition: background 0.15s ease-in;
+  -o-transition: background 0.15s ease-in;
+  -webkit-transition: background 0.15s ease-in;
+  transition: background 0.15s ease-in;
+  background: #aaccff;
+}
+.ui-autocomplete li:hover:nth-child(5), .ui-autocomplete li:hover:last-child {
+  -moz-border-radius: 0 0 5px 5px;
+  -webkit-border-radius: 0;
+  border-radius: 0 0 5px 5px;
+}
+.ui-autocomplete li a {
+  display: block;
+  padding: 0 12px;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ui-autocomplete .ui-state-focus { background: #559cfa !important; color:#ffffff !important; } 
+*/

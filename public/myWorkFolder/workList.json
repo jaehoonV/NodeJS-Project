@@ -25,5 +25,6 @@
     {"name" : "Spinning_Wheel_Game","width" : 600, "height" : 600},
     {"name" : "Search_Bar_In_JS","width" : 600, "height" : 336},
     {"name" : "Typing_JS","width" : 600, "height" : 600},
-    {"name" : "Weather_API_Service","width" : 600, "height" : 438}
+    {"name" : "Weather_API_Service","width" : 600, "height" : 438},
+    {"name" : "PMIS_MAIN_S","width" : 800, "height" : 408}
 ]

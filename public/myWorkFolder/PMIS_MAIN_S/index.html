@@ -1,0 +1,2035 @@
+﻿<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/total_main.css" />
+	<link rel="stylesheet" type="text/css" href="css/top_navi.css" />
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/grid_view.js"></script>
+    <title>S PMIS</title>
+</head>
+<body>
+    <div id="container">
+        <div id="wrap_header">
+            <!-- Header -->
+            <div id="top">
+                <div id="top-wrap" class="fx-between item-center">
+                    <div>
+                        <div id="logoHeader" class="logoHeaderManage">
+                            <img src="images/logo_top.png" alt="logo">
+                        </div>
+                    </div>
+                    <div id="quick-link">
+                        <ul class="fx-end item-center">
+                            <li id="tmenu_mypage" title="MyPage" class="fx-start item-center">
+                                <span class="ico_menu">
+                                    <img src="images/account_circle.png" alt="">
+                                </span>
+                                <span>운영자</span> 업체명
+                            </li>
+                            <li id="tmenu_logout">로그아웃</li>
+                            <li class="separator"></li>
+                            <li id="tmenu_sitemap">SITE MAP</li>
+                            <li class="separator"></li>
+                            <li id="tmenu_language">
+                                <select>
+                                    <option value="KOR">KOR</option>
+                                    <option value="EN">EN</option>
+                                    <option value="JP">JP</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- GNB -->
+            <div id="gnbMainManage">
+                <div id="wrap" class="fx-between item-center">
+                    <div id="gnbManage" class="gnb">
+                        <ul>
+                            <li id="top_TS-A000-000"><a href="javascript:void(0)" menu-code="TS-A000-000" menu-type="Manage">사업관리</a></li><li id="top_DS-B000-000"><a href="javascript:void(0)" menu-code="DS-B000-000" menu-type="Manage">사업현황</a></li><li id="top_TS-X000-000"><a href="javascript:void(0)" menu-code="TS-X000-000" menu-type="Manage">조직관리</a></li><li id="top_TS-D000-000"><a href="javascript:void(0)" menu-code="TS-D000-000" menu-type="Manage">분류관리</a></li><li id="top_TA-A000-000"><a href="javascript:void(0)" menu-code="TA-A000-000" menu-type="Manage">추정 공기·공사비 기준</a></li><li id="top_TS-G000-000"><a href="javascript:void(0)" menu-code="TS-G000-000" menu-type="Manage">대가관리</a></li><li id="top_TS-I000-000"><a href="javascript:void(0)" menu-code="TS-I000-000" menu-type="Manage">사업비관리</a></li><li id="top_DS-E000-000"><a href="javascript:void(0)" menu-code="DS-E000-000" menu-type="Manage">계약관리</a></li><li id="top_DS-F000-000"><a href="javascript:void(0)" menu-code="DS-F000-000" menu-type="Manage">설계관리</a></li><li id="top_TS-J000-000"><a href="javascript:void(0)" menu-code="TS-J000-000" menu-type="Manage">표준내역</a></li><li id="top_TS-K000-000"><a href="javascript:void(0)" menu-code="TS-K000-000" menu-type="Manage">내역분석</a></li><li id="top_TS-L000-000"><a href="javascript:void(0)" menu-code="TS-L000-000" menu-type="Manage">원가관리</a></li><li id="top_TS-M000-000"><a href="javascript:void(0)" menu-code="TS-M000-000" menu-type="Manage">공사비분석</a></li><li id="top_DS-D000-000"><a href="javascript:void(0)" menu-code="DS-D000-000" menu-type="Manage">공정관리</a></li><li id="top_TS-V000-000"><a href="javascript:void(0)" menu-code="TS-V000-000" menu-type="Manage">구매관리</a></li><li id="top_TS-W000-000"><a href="javascript:void(0)" menu-code="TS-W000-000" menu-type="Manage">자재관리</a></li><li id="top_DS-G000-000"><a href="javascript:void(0)" menu-code="DS-G000-000" menu-type="Manage">시공관리</a></li><li id="top_DS-H000-000"><a href="javascript:void(0)" menu-code="DS-H000-000" menu-type="Manage">안전·품질·환경</a></li><li id="top_TS-Y000-000"><a href="javascript:void(0)" menu-code="TS-Y000-000" menu-type="Manage">지시·보고</a></li><li id="top_TS-O000-000"><a href="javascript:void(0)" menu-code="TS-O000-000" menu-type="Manage">이슈·리스크</a></li><li id="top_TS-C000-000"><a href="javascript:void(0)" menu-code="TS-C000-000" menu-type="Manage">문서·자료</a></li><li id="top_TS-R000-000"><a href="javascript:void(0)" menu-code="TS-R000-000" menu-type="Manage">자산관리</a></li><li id="top_TS-T000-000"><a href="javascript:void(0)" menu-code="TS-T000-000" menu-type="Manage">M/M관리</a></li><li id="top_TS-B000-000"><a href="javascript:void(0)" menu-code="TS-B000-000" menu-type="Manage">경력관리</a></li><li id="top_TS-S000-000"><a href="javascript:void(0)" menu-code="TS-S000-000" menu-type="Manage">협업관리</a></li><li id="top_DS-I000-000"><a href="javascript:void(0)" menu-code="DS-I000-000" menu-type="Manage">커뮤니티</a></li><li id="top_TS-E000-000"><a href="javascript:void(0)" menu-code="TS-E000-000" menu-type="Manage">A.I 관리</a></li><li id="top_TS-Z000-000"><a href="javascript:void(0)" menu-code="TS-Z000-000" menu-type="Manage">ADF 관리</a></li><li id="top_TS-H000-000"><a href="javascript:void(0)" menu-code="TS-H000-000" menu-type="Manage">TAB 관리</a></li><li id="top_TS-F000-000"><a href="javascript:void(0)" menu-code="TS-F000-000" menu-type="Manage">I.F 관리</a></li><li id="top_AS-M000-000"><a href="javascript:void(0)" menu-code="AS-M000-000" menu-type="Manage">운영관리</a></li><li id="top_AS-L000-000"><a href="javascript:void(0)" menu-code="AS-L000-000" menu-type="Manage">시스템관리</a></li><li id="top_DS-X000-000"><a href="javascript:void(0)" menu-code="DS-X000-000" menu-type="Manage">프레임워크관리</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav_bt fr">
+                        <div class="fx-between-col item-center">
+                            <div class="nav_bt_up" data-page="up">
+                                <span class="ico_menu">
+                                    <img src="images/ico_control_up.png" alt="">
+                                </span>
+                            </div>
+                            <div class="nav_bt_dw" data-page="down">
+                                <span class="ico_menu">
+                                    <img src="images/ico_control_down.png" alt="">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 메뉴검색 & 즐겨찾기 -->
+        <div id="schTop" class="pd0" style="border: 0px;">
+            <div id="menu-wrap" class="fx-start">
+                <div id="slide_area" class="fx-start item-center">
+                    <div id="top_menu_label" class="schForm fx-start item-center">
+                        <span class="ico_menu">
+                            <img src="images/ico_menu_search.png" alt="">
+                        </span>
+                        <span class="aMid mgRit4">메뉴검색</span>
+                    </div>
+                    <div id="top_menu_area" class="schForm">
+                        <span style="vertical-align:baseline;">
+                            <input type="text" id="menu_search_input" class="ipText ui-autocomplete-input" placeholder="메뉴명을 입력해 주세요" autocomplete="off"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                        </span>
+                    </div>
+                    <div id="top_bmk_label" class="schForm fx-start item-center" style="padding-top: 0;">
+                        <span class="ico_menu">
+                            <img src="images/ico_bookmark.png" alt="">
+                        </span>
+                        <span class="aMid mgRit4">즐겨찾기</span>
+                    </div>
+                    <!-- 즐겨찾기 목록 -->
+                    
+                </div>
+                <div class="fx-start" style="height: 100%; flex: unset;">
+                    <div class="curMenu fx-start item-center">
+                        <span class="ico_menu">
+                            <img src="images/ico_pj_list.png" alt="">
+                        </span>
+                        <div id="btn_pop_pjt" class="aMid" title="사업목록">
+                            총괄 사업관리
+                        </div>
+                        
+                    </div>
+                    <div class="fx-center item-center" id="btn_primary_group" data-grp_cd="CM" title=" 사업관리시스템 전환">
+                        <span class="ico_menu">
+                            <img src="images/ico_switch.png" alt="">
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all" id="ui-id-1" tabindex="0" style="display: none;"></ul>
+        </div>
+        <!-- Content 영역 -->
+        <div id="content">
+            <div id="content-wrap">
+                <div class="left_cont_label">&#9001;</div>
+                <div class="fx-between">
+                    <div class="left_cont fx-start-col item-start">
+                        <!-- 문서정보 -->
+                        <div class="fx-start-col item-start">
+                            <!-- 문서정보 -->
+                            <div id="pj-docs" class="fx-between-col item-center">
+                                <div class="fx-between">
+                                    <ul class="cont-box-tit-ico">
+                                        <li>문서정보</li>
+                                    </ul>
+                                </div>
+                                <div class="fx-between-col item-start">
+                                    <div class="pj-docs-info fx-start item-center">
+                                        <div class="fx-center item-center">수신문서</div>
+                                        <div class="pj-docs-info-count fx-end item-center">
+                                            <ul class="fx-start item-start item-center">
+                                                <li class="newcount"><span class="doc_recv_unread">0</span></li>
+                                                <li>건</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="pj-docs-info fx-start item-center">
+                                        <div class="fx-center item-center">
+                                            승인대기
+                                            <img src="images/ico_add.png" alt="">
+                                        </div>
+                                        <div class="pj-docs-info-count fx-end item-center">
+                                            <ul class="fx-start item-center">
+                                                <li class="newcount"><span class="doc_to_approve">3</span></li>
+                                                <li>건</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="pj-docs-info fx-start item-center" id="inspection_unread_totalp">
+                                        <div class="fx-center item-center">
+                                            QSE문서
+                                            <img src="images/ico_add.png" alt="">
+                                        </div>
+                                        <div class="pj-docs-info-count fx-end item-center">
+                                            <ul class="fx-start item-start item-center">
+                                                <li class="inspection_unread_totalp">0</li>
+                                                <li>건</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- QSE문서 -->
+                            <div id="pj-docs-qse" class="fx-between-col item-start">
+                                <div class="fx-between">
+                                    <ul class="cont-box-tit-ico">
+                                        <li>QSE문서</li>
+                                    </ul>
+                                    <div id="qse_close" class="fx-center item-center"><img src="images/ico_close.png"></div>
+                                </div>
+                                <div class="fx-between-col item-start">
+                                    <div class="pj-docs-qse-info fx-start">
+                                        <div class="fx-center item-center">품질결합통보</div>
+                                        <div class="pj-docs-qse-info-count fx-end">
+                                            <ul class="fx-start item-start item-center">
+                                                <li class="newcount2"><span class="inspection_unread_totalp3">0</span></li>
+                                                <li>건</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="pj-docs-qse-info fx-start">
+                                        <div class="fx-center item-center">부적합보고서</div>
+                                        <div class="pj-docs-qse-info-count fx-end">
+                                            <ul class="fx-start item-start item-center">
+                                                <li class="newcount2"><span class="inspection_unread_totalp1">0</span></li>
+                                                <li>건</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="pj-docs-qse-info fx-start">
+                                        <div class="fx-center item-center">시정조치요구서</div>
+                                        <div class="pj-docs-qse-info-count fx-end">
+                                            <ul class="fx-start item-start item-center">
+                                                <li class="newcount2"><span class="inspection_unread_totalp2">0</span></li>
+                                                <li>건</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="pj-docs-qse-info fx-start">
+                                        <div class="fx-center item-center">안정지적서</div>
+                                        <div class="pj-docs-qse-info-count fx-end">
+                                            <ul class="fx-start item-start item-center">
+                                                <li class="newcount2"><span class="inspection_unread_totalp4">0</span></li>
+                                                <li>건</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="pj-docs-qse-info fx-start">
+                                        <div class="fx-center item-center">환경지적서</div>
+                                        <div class="pj-docs-qse-info-count fx-end">
+                                            <ul class="fx-start item-start item-center">
+                                                <li class="newcount2"><span class="inspection_unread_totalp5">0</span></li>
+                                                <li>건</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 공지사항 -->
+                        <div class="notice fx-between-col item-start">
+                            <div class="fx-between">
+                                <ul class="cont-box-tit-ico fx-between item-center">
+                                    <li>공지사항</li>
+                                    <li>
+                                        <button class="btn_more fx-end item-center">
+                                            MORE
+                                            <img src="images/ico_add.png" alt="">
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="table_wrap">
+                                <table id="pj-list-table">
+                                    <colgroup></colgroup>
+                                    <colgroup style="width:31%;"></colgroup>
+                                    <colgroup style="width:10px;"></colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th>제목</th>
+                                            <th>등록일</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                                <div class="list-table-scroll">
+                                    <table id="pj-list-table">
+                                        <colgroup></colgroup>
+                                        <colgroup style="width:31%;"></colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <td>현장 CCTV 설치 위치 공지</td>
+                                                <td>23.04.25</td>
+                                            </tr>
+                                            <tr>
+                                                <td>현장 작업 중 안전 관리 유의 사항 공지</td>
+                                                <td>20.10.31</td>
+                                            </tr>
+                                            <tr>
+                                                <td>신규 공사현장 소음 '에어방음벽'으로</td>
+                                                <td>20.10.27</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공사 현장 재정 신청 접수</td>
+                                                <td>20.10.27</td>
+                                            </tr>
+                                            <tr>
+                                                <td>코로나-19 예방 관련 공지입니다</td>
+                                                <td>20.08.29</td>
+                                            </tr>
+                                            <tr>
+                                                <td>현장 CCTV 설치 위치 공지</td>
+                                                <td>23.04.25</td>
+                                            </tr>
+                                            <tr>
+                                                <td>현장 작업 중 안전 관리 유의 사항 공지</td>
+                                                <td>20.10.31</td>
+                                            </tr>
+                                            <tr>
+                                                <td>신규 공사현장 소음 '에어방음벽'으로</td>
+                                                <td>20.10.27</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공사 현장 재정 신청 접수</td>
+                                                <td>20.10.27</td>
+                                            </tr>
+                                            <tr>
+                                                <td>코로나-19 예방 관련 공지입니다</td>
+                                                <td>20.08.29</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 시스템 메뉴얼 바로가기 -->
+                        <div class="btn-system-manual">
+                            <a href="" class="fx-between item-center">
+                                시스템 메뉴얼 바로가기
+                                <img src="images/ico_add.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="right_cont fx-between-col item-start">
+                        <div class="right_top fx-between item-start">
+                            <!-- 공정현황 -->
+                            <div class="card_wrap">
+                                <div class="card_wrap_tit fx-between item-center">
+                                    <div class="fx-start item-center card-tit">
+                                        <span>공정현황</span>
+                                        <input type="date">
+                                    </div>
+                                    <div class="fx-start item-center">
+                                        <div class="card-legend fx-end item-center">
+                                            <div class="fx-between item-center">
+                                                <div class="l_rectangle"></div>Plan
+                                            </div>
+                                            <div class="fx-between item-center">
+                                                <div class="l_rectangle"></div>Actual
+                                            </div>
+                                        </div>
+                                        <div class="controls fx-start item-center">
+                                            <button id="oneView" class="fx-start item-center active">
+                                                <span class="ico_menu">
+                                                </span>
+                                                1개 보기
+                                            </button>
+                                            <button id="fourView" class="fx-start item-center">
+                                                <span class="ico_menu">
+                                                </span>
+                                                4개 보기
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="cardWrapper" class="single-view">
+                                    <div class="card-container">
+                                        <div class="fx-center item-center card">
+                                            <div id="pj-table-box">
+                                                <div class="group_name">Project1</div>
+                                                <div id="pj-table-box-inner">
+                                                    <table id="pj-table">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td class="pj-item">Overall</td>
+                                                            <td colspan="3">
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs11"><div class="bar-plan" style="width: 94%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs11"><div class="bar-actual" style="width: 27%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan pct-plan prgs11_text ">94.79 %</li>
+                                                                            <li class="box_3_table_graph_result pct-actual prgs11_text ">27.92 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                            <tr>
+                                                            <td class="pj-item">Management</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs11"><div class="bar-plan" style="width: 94%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs11"><div class="bar-actual" style="width: 27%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan pct-plan prgs11_text ">94.79 %</li>
+                                                                            <li class="box_3_table_graph_result pct-actual prgs11_text ">27.92 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="pj-item">Engineering</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs1"><div class="bar-plan" style="width: 100%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs1"><div class="bar-actual" style="width: 40%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs1_text pct-plan">100.00 %</li>
+                                                                            <li class="box_3_table_graph_result prgs1_text pct-actual">40.41 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="pj-item">Procurement</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs7"><div class="bar-plan" style="width: 100%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs7"><div class="bar-actual" style="width: 30%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs7_text pct-plan">100.00 %</li>
+                                                                            <li class="box_3_table_graph_result prgs7_text pct-actual">30.19 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="pj-item">Construction</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs0"><div class="bar-plan" style="width: 94%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs0"><div class="bar-actual" style="width: 18%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs0_text pct-plan">94.01 %</li>
+                                                                            <li class="box_3_table_graph_result prgs0_text pct-actual">18.66 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="pj-item">Comm.</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs3"><div class="bar-plan" style="width: 0px; max-width: 152px; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs3"><div class="bar-actual" style="width: 0px; max-width: 152px; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs3_text pct-plan">0.00 %</li>
+                                                                            <li class="box_3_table_graph_result prgs3_text pct-actual">0.00 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="pj-item">Validation</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs242"><div class="bar-plan" style="width: 96%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs242"><div class="bar-actual" style="width: 40%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs242_text pct-plan">96.52 %</li>
+                                                                            <li class="box_3_table_graph_result prgs242_text pct-actual">40.62 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="fx-center item-center card">
+                                            <div id="pj-table-box">
+                                                <div class="group_name">Project2</div>
+                                                <div id="pj-table-box-inner">
+                                                    <table id="pj-table">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td class="pj-item">Overall</td>
+                                                            <td colspan="3">
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs11"><div class="bar-plan" style="width: 94%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs11"><div class="bar-actual" style="width: 27%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan pct-plan prgs11_text ">94.79 %</li>
+                                                                            <li class="box_3_table_graph_result pct-actual prgs11_text ">27.92 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                            <tr>
+                                                            <td class="pj-item">Management</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs11"><div class="bar-plan" style="width: 94%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs11"><div class="bar-actual" style="width: 27%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan pct-plan prgs11_text ">94.79 %</li>
+                                                                            <li class="box_3_table_graph_result pct-actual prgs11_text ">27.92 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="pj-item">Engineering</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs1"><div class="bar-plan" style="width: 100%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs1"><div class="bar-actual" style="width: 40%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs1_text pct-plan">100.00 %</li>
+                                                                            <li class="box_3_table_graph_result prgs1_text pct-actual">40.41 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="pj-item">Procurement</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs7"><div class="bar-plan" style="width: 100%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs7"><div class="bar-actual" style="width: 30%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs7_text pct-plan">100.00 %</li>
+                                                                            <li class="box_3_table_graph_result prgs7_text pct-actual">30.19 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="pj-item">Construction</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs0"><div class="bar-plan" style="width: 94%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs0"><div class="bar-actual" style="width: 18%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs0_text pct-plan">94.01 %</li>
+                                                                            <li class="box_3_table_graph_result prgs0_text pct-actual">18.66 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="pj-item">Comm.</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs3"><div class="bar-plan" style="width: 0px; max-width: 152px; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs3"><div class="bar-actual" style="width: 0px; max-width: 152px; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs3_text pct-plan">0.00 %</li>
+                                                                            <li class="box_3_table_graph_result prgs3_text pct-actual">0.00 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="pj-item">Validation</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs242"><div class="bar-plan" style="width: 96%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs242"><div class="bar-actual" style="width: 40%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs242_text pct-plan">96.52 %</li>
+                                                                            <li class="box_3_table_graph_result prgs242_text pct-actual">40.62 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="fx-center item-center card">
+                                            <div id="pj-table-box">
+                                                <div class="group_name">Project3</div>
+                                                <div id="pj-table-box-inner">
+                                                    <table id="pj-table">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td class="pj-item">Overall</td>
+                                                            <td colspan="3">
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs11"><div class="bar-plan" style="width: 94%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs11"><div class="bar-actual" style="width: 27%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan pct-plan prgs11_text ">94.79 %</li>
+                                                                            <li class="box_3_table_graph_result pct-actual prgs11_text ">27.92 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                            <tr>
+                                                            <td class="pj-item">Management</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs11"><div class="bar-plan" style="width: 94%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs11"><div class="bar-actual" style="width: 27%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan pct-plan prgs11_text ">94.79 %</li>
+                                                                            <li class="box_3_table_graph_result pct-actual prgs11_text ">27.92 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="pj-item">Engineering</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs1"><div class="bar-plan" style="width: 100%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs1"><div class="bar-actual" style="width: 40%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs1_text pct-plan">100.00 %</li>
+                                                                            <li class="box_3_table_graph_result prgs1_text pct-actual">40.41 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="pj-item">Procurement</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs7"><div class="bar-plan" style="width: 100%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs7"><div class="bar-actual" style="width: 30%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs7_text pct-plan">100.00 %</li>
+                                                                            <li class="box_3_table_graph_result prgs7_text pct-actual">30.19 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="pj-item">Construction</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs0"><div class="bar-plan" style="width: 94%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs0"><div class="bar-actual" style="width: 18%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs0_text pct-plan">94.01 %</li>
+                                                                            <li class="box_3_table_graph_result prgs0_text pct-actual">18.66 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="pj-item">Comm.</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs3"><div class="bar-plan" style="width: 0px; max-width: 152px; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs3"><div class="bar-actual" style="width: 0px; max-width: 152px; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs3_text pct-plan">0.00 %</li>
+                                                                            <li class="box_3_table_graph_result prgs3_text pct-actual">0.00 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="pj-item">Validation</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs242"><div class="bar-plan" style="width: 96%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs242"><div class="bar-actual" style="width: 40%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs242_text pct-plan">96.52 %</li>
+                                                                            <li class="box_3_table_graph_result prgs242_text pct-actual">40.62 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="fx-center item-center card">
+                                            <div id="pj-table-box">
+                                                <div class="group_name">Project4</div>
+                                                <div id="pj-table-box-inner">
+                                                    <table id="pj-table">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td class="pj-item">Overall</td>
+                                                            <td colspan="3">
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs11"><div class="bar-plan" style="width: 94%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs11"><div class="bar-actual" style="width: 27%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan pct-plan prgs11_text ">94.79 %</li>
+                                                                            <li class="box_3_table_graph_result pct-actual prgs11_text ">27.92 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                            <tr>
+                                                            <td class="pj-item">Management</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs11"><div class="bar-plan" style="width: 94%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs11"><div class="bar-actual" style="width: 27%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan pct-plan prgs11_text ">94.79 %</li>
+                                                                            <li class="box_3_table_graph_result pct-actual prgs11_text ">27.92 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="pj-item">Engineering</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs1"><div class="bar-plan" style="width: 100%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs1"><div class="bar-actual" style="width: 40%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs1_text pct-plan">100.00 %</li>
+                                                                            <li class="box_3_table_graph_result prgs1_text pct-actual">40.41 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="pj-item">Procurement</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs7"><div class="bar-plan" style="width: 100%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs7"><div class="bar-actual" style="width: 30%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs7_text pct-plan">100.00 %</li>
+                                                                            <li class="box_3_table_graph_result prgs7_text pct-actual">30.19 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="pj-item">Construction</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs0"><div class="bar-plan" style="width: 94%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs0"><div class="bar-actual" style="width: 18%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs0_text pct-plan">94.01 %</li>
+                                                                            <li class="box_3_table_graph_result prgs0_text pct-actual">18.66 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="pj-item">Comm.</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs3"><div class="bar-plan" style="width: 0px; max-width: 152px; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs3"><div class="bar-actual" style="width: 0px; max-width: 152px; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs3_text pct-plan">0.00 %</li>
+                                                                            <li class="box_3_table_graph_result prgs3_text pct-actual">0.00 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="pj-item">Validation</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs242"><div class="bar-plan" style="width: 96%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs242"><div class="bar-actual" style="width: 40%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs242_text pct-plan">96.52 %</li>
+                                                                            <li class="box_3_table_graph_result prgs242_text pct-actual">40.62 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="fx-center item-center card">
+                                            <div id="pj-table-box">
+                                                <div class="group_name">Project5</div>
+                                                <div id="pj-table-box-inner">
+                                                    <table id="pj-table">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td class="pj-item">Overall</td>
+                                                            <td colspan="3">
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs11"><div class="bar-plan" style="width: 94%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs11"><div class="bar-actual" style="width: 27%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan pct-plan prgs11_text ">94.79 %</li>
+                                                                            <li class="box_3_table_graph_result pct-actual prgs11_text ">27.92 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                            <tr>
+                                                            <td class="pj-item">Management</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs11"><div class="bar-plan" style="width: 94%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs11"><div class="bar-actual" style="width: 27%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan pct-plan prgs11_text ">94.79 %</li>
+                                                                            <li class="box_3_table_graph_result pct-actual prgs11_text ">27.92 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="pj-item">Engineering</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs1"><div class="bar-plan" style="width: 100%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs1"><div class="bar-actual" style="width: 40%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs1_text pct-plan">100.00 %</li>
+                                                                            <li class="box_3_table_graph_result prgs1_text pct-actual">40.41 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="pj-item">Procurement</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs7"><div class="bar-plan" style="width: 100%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs7"><div class="bar-actual" style="width: 30%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs7_text pct-plan">100.00 %</li>
+                                                                            <li class="box_3_table_graph_result prgs7_text pct-actual">30.19 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="pj-item">Construction</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs0"><div class="bar-plan" style="width: 94%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs0"><div class="bar-actual" style="width: 18%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs0_text pct-plan">94.01 %</li>
+                                                                            <li class="box_3_table_graph_result prgs0_text pct-actual">18.66 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="pj-item">Comm.</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs3"><div class="bar-plan" style="width: 0px; max-width: 152px; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs3"><div class="bar-actual" style="width: 0px; max-width: 152px; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs3_text pct-plan">0.00 %</li>
+                                                                            <li class="box_3_table_graph_result prgs3_text pct-actual">0.00 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="pj-item">Validation</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs242"><div class="bar-plan" style="width: 96%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs242"><div class="bar-actual" style="width: 40%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs242_text pct-plan">96.52 %</li>
+                                                                            <li class="box_3_table_graph_result prgs242_text pct-actual">40.62 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="fx-center item-center card">
+                                            <div id="pj-table-box">
+                                                <div class="group_name">Project6</div>
+                                                <div id="pj-table-box-inner">
+                                                    <table id="pj-table">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td class="pj-item">Overall</td>
+                                                            <td colspan="3">
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs11"><div class="bar-plan" style="width: 94%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs11"><div class="bar-actual" style="width: 27%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan pct-plan prgs11_text ">94.79 %</li>
+                                                                            <li class="box_3_table_graph_result pct-actual prgs11_text ">27.92 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                            <tr>
+                                                            <td class="pj-item">Management</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs11"><div class="bar-plan" style="width: 94%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs11"><div class="bar-actual" style="width: 27%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan pct-plan prgs11_text ">94.79 %</li>
+                                                                            <li class="box_3_table_graph_result pct-actual prgs11_text ">27.92 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="pj-item">Engineering</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs1"><div class="bar-plan" style="width: 100%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs1"><div class="bar-actual" style="width: 40%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs1_text pct-plan">100.00 %</li>
+                                                                            <li class="box_3_table_graph_result prgs1_text pct-actual">40.41 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="pj-item">Procurement</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs7"><div class="bar-plan" style="width: 100%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs7"><div class="bar-actual" style="width: 30%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs7_text pct-plan">100.00 %</li>
+                                                                            <li class="box_3_table_graph_result prgs7_text pct-actual">30.19 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="pj-item">Construction</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs0"><div class="bar-plan" style="width: 94%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs0"><div class="bar-actual" style="width: 18%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs0_text pct-plan">94.01 %</li>
+                                                                            <li class="box_3_table_graph_result prgs0_text pct-actual">18.66 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="pj-item">Comm.</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs3"><div class="bar-plan" style="width: 0px; max-width: 152px; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs3"><div class="bar-actual" style="width: 0px; max-width: 152px; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs3_text pct-plan">0.00 %</li>
+                                                                            <li class="box_3_table_graph_result prgs3_text pct-actual">0.00 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="pj-item">Validation</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs242"><div class="bar-plan" style="width: 96%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs242"><div class="bar-actual" style="width: 40%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs242_text pct-plan">96.52 %</li>
+                                                                            <li class="box_3_table_graph_result prgs242_text pct-actual">40.62 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="fx-center item-center card">
+                                            <div id="pj-table-box">
+                                                <div class="group_name">Project7</div>
+                                                <div id="pj-table-box-inner">
+                                                    <table id="pj-table">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td class="pj-item">Overall</td>
+                                                            <td colspan="3">
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs11"><div class="bar-plan" style="width: 94%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs11"><div class="bar-actual" style="width: 27%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan pct-plan prgs11_text ">94.79 %</li>
+                                                                            <li class="box_3_table_graph_result pct-actual prgs11_text ">27.92 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                            <tr>
+                                                            <td class="pj-item">Management</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs11"><div class="bar-plan" style="width: 94%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs11"><div class="bar-actual" style="width: 27%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan pct-plan prgs11_text ">94.79 %</li>
+                                                                            <li class="box_3_table_graph_result pct-actual prgs11_text ">27.92 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="pj-item">Engineering</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs1"><div class="bar-plan" style="width: 100%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs1"><div class="bar-actual" style="width: 40%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs1_text pct-plan">100.00 %</li>
+                                                                            <li class="box_3_table_graph_result prgs1_text pct-actual">40.41 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="pj-item">Procurement</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs7"><div class="bar-plan" style="width: 100%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs7"><div class="bar-actual" style="width: 30%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs7_text pct-plan">100.00 %</li>
+                                                                            <li class="box_3_table_graph_result prgs7_text pct-actual">30.19 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="pj-item">Construction</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs0"><div class="bar-plan" style="width: 94%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs0"><div class="bar-actual" style="width: 18%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs0_text pct-plan">94.01 %</li>
+                                                                            <li class="box_3_table_graph_result prgs0_text pct-actual">18.66 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="pj-item">Comm.</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs3"><div class="bar-plan" style="width: 0px; max-width: 152px; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs3"><div class="bar-actual" style="width: 0px; max-width: 152px; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs3_text pct-plan">0.00 %</li>
+                                                                            <li class="box_3_table_graph_result prgs3_text pct-actual">0.00 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="pj-item">Validation</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs242"><div class="bar-plan" style="width: 96%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs242"><div class="bar-actual" style="width: 40%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs242_text pct-plan">96.52 %</li>
+                                                                            <li class="box_3_table_graph_result prgs242_text pct-actual">40.62 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="fx-center item-center card">
+                                            <div id="pj-table-box">
+                                                <div class="group_name">Project8</div>
+                                                <div id="pj-table-box-inner">
+                                                    <table id="pj-table">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td class="pj-item">Overall</td>
+                                                            <td colspan="3">
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs11"><div class="bar-plan" style="width: 94%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs11"><div class="bar-actual" style="width: 27%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan pct-plan prgs11_text ">94.79 %</li>
+                                                                            <li class="box_3_table_graph_result pct-actual prgs11_text ">27.92 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                            <tr>
+                                                            <td class="pj-item">Management</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs11"><div class="bar-plan" style="width: 94%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs11"><div class="bar-actual" style="width: 27%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan pct-plan prgs11_text ">94.79 %</li>
+                                                                            <li class="box_3_table_graph_result pct-actual prgs11_text ">27.92 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="pj-item">Engineering</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs1"><div class="bar-plan" style="width: 100%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs1"><div class="bar-actual" style="width: 40%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs1_text pct-plan">100.00 %</li>
+                                                                            <li class="box_3_table_graph_result prgs1_text pct-actual">40.41 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="pj-item">Procurement</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs7"><div class="bar-plan" style="width: 100%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs7"><div class="bar-actual" style="width: 30%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs7_text pct-plan">100.00 %</li>
+                                                                            <li class="box_3_table_graph_result prgs7_text pct-actual">30.19 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="pj-item">Construction</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs0"><div class="bar-plan" style="width: 94%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs0"><div class="bar-actual" style="width: 18%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs0_text pct-plan">94.01 %</li>
+                                                                            <li class="box_3_table_graph_result prgs0_text pct-actual">18.66 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="pj-item">Comm.</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs3"><div class="bar-plan" style="width: 0px; max-width: 152px; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs3"><div class="bar-actual" style="width: 0px; max-width: 152px; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs3_text pct-plan">0.00 %</li>
+                                                                            <li class="box_3_table_graph_result prgs3_text pct-actual">0.00 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="pj-item">Validation</td>
+                                                            <td>
+                                                                <div class="fx-between pj-item-area">
+                                                                    <div class="fx-start">
+                                                                        <ul class="pj-item-tit fx-between-col">
+                                                                            <li>Plan</li>
+                                                                            <li>Actual</li>
+                                                                        </ul>
+                                                                        <ul class="pj-item-bar fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs242"><div class="bar-plan" style="width: 96%; height: 16px;"></div></li>
+                                                                            <li class="box_3_table_graph_result prgs242"><div class="bar-actual" style="width: 40%; height: 16px;"></div></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <ul class="pj-item-pct fx-between-col">
+                                                                            <li class="box_3_table_graph_plan prgs242_text pct-plan">96.52 %</li>
+                                                                            <li class="box_3_table_graph_result prgs242_text pct-actual">40.62 %</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="indicator">
+                                    <div id="indicator">
+                                        <span class="dot active"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                    </div>
+                                    <div class="controls fx-between">
+                                        <button class="fx-center item-center" id="toggleSlide">
+                                            <img id="toggleIcon" src="images/ico_slide_pause.png" alt="일시정지" />
+                                        </button>
+                                        <button class="fx-center item-center" id="prevSlide">
+                                            <img src="images/ico_slide_left.png" alt="slide_left">
+                                        </button>
+                                        <button class="fx-center item-center" id="nextSlide">
+                                            <img src="images/ico_slide_right.png" alt="slide_right">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 마일스톤 -->
+                            <div class="milestone-permit-tabs fx-between-col item-start">
+                                <div class="fx-between item-center">
+                                    <div class="mainTabs_switch fx-start item-center">
+                                        <div class="mainTabs_tab mainTabs_switch_active" data-index="3">마일스톤</div>
+                                        <div class="mainTabs_tab" data-index="2">인허가</div>
+                                    </div>
+                                    <div class="fx-end item-center"><input type="date"></div>
+                                </div>
+                                <div class="table_wrap">
+                                    <table id="pj-list-table">
+                                        <colgroup style="width:20%;"></colgroup>
+                                        <colgroup></colgroup>
+                                        <colgroup style="width:20%;"></colgroup>
+                                        <colgroup style="width:20%;"></colgroup>
+                                        <colgroup style="width:10px;"></colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th>PJT</th>
+                                                <th>Item</th>
+                                                <th>Plan</th>
+                                                <th>Actual</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                    <div class="list-table-scroll">
+                                        <table id="pj-list-table">
+                                            <colgroup style="width:20%;"></colgroup>
+                                            <colgroup></colgroup>
+                                            <colgroup style="width:20%;"></colgroup>
+                                            <colgroup style="width:20%;"></colgroup>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Project1</td>
+                                                    <td>OOFOOFOOFOOFFOOF</td>
+                                                    <td>25.04.01</td>
+                                                    <td>25.04.01</td>
+                                                </tr>
+                                                <tr class="day_on">
+                                                    <td>Project2</td>
+                                                    <td>#####################</td>
+                                                    <td>25.05.10</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr class="day_on">
+                                                    <td>Project1</td>
+                                                    <td>OOF</td>
+                                                    <td>25.04.01</td>
+                                                    <td>25.04.01</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Project1</td>
+                                                    <td>OOFOOFOOFOOFFOOF</td>
+                                                    <td>25.04.01</td>
+                                                    <td>25.04.01</td>
+                                                </tr>
+                                                <tr class="day_on">
+                                                    <td>Project2</td>
+                                                    <td>#####################</td>
+                                                    <td>25.05.10</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Project1</td>
+                                                    <td>OOF</td>
+                                                    <td>25.04.01</td>
+                                                    <td>25.04.01</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Project1</td>
+                                                    <td>OOFOOFOOFOOFFOOF</td>
+                                                    <td>25.04.01</td>
+                                                    <td>25.04.01</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Project2</td>
+                                                    <td>#####################</td>
+                                                    <td>25.05.10</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Project1</td>
+                                                    <td>OOF</td>
+                                                    <td>25.04.01</td>
+                                                    <td>25.04.01</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right_bottom">
+                            <!-- 프로젝트 리스트 -->
+                            <div class="project_data fx-start-col item-start">
+                                <div class="fx-between item-center">
+                                    <div class="mainTabs_switch fx-start item-center">
+                                        <div class="mainTabs_tab mainTabs_switch_active" data-index="3">Project1</div>
+                                        <div class="mainTabs_tab" data-index="2">Project2</div>
+                                        <div class="mainTabs_tab" data-index="2">Project3</div>
+                                        <div class="mainTabs_tab" data-index="2">Project4</div>
+                                        <div class="mainTabs_tab" data-index="2">Project5</div>
+                                    </div>
+                                    <div class="fx-end item-center"><button class="pj_link fx-center item-center">사업이동<span>&#187;</span></button></div>
+                                </div>
+                                <div class="fx-between item-center">
+                                    <!-- 사업개요 -->
+                                    <div id="business-introduce" class="fx-between-col">
+                                        <table id="business-introduce-info">
+                                            <colgroup style="width:20%;"></colgroup>
+                                            <colgroup></colgroup>
+                                            <tbody>
+                                                <tr>
+                                                    <td>진행현황</td>
+                                                    <td>진행</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>위치</td>
+                                                    <td title="서울특별시 은평구 대조동">서울특별시 은평구 대조동</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>사업기간</td>
+                                                    <td>2022.10.01 ~ 2023.08.17</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>D-Day</td>
+                                                    <td>D- <span>nnn</span> (GMP Ready)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>설계사</td>
+                                                    <td>업체명</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>시공사</td>
+                                                    <td>업체명</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- 현장이미지 -->
+                                    <div id="unit-photo" class="fx-between-col">
+                                        <div class="title-area fx-between item-center">
+                                            <div class="cal_tab_btns">
+                                                <ul class="cal_tab_sub">
+                                                    <li class="cal_tab cal_tab_active_left" data-index="0" style="margin-top: 1px;">
+                                                        <a class="cal_tab_active_right roomAll" data-index="0" onclick="tab_click($(this).attr('data-index') , $(this) )">전체</a>
+                                                    </li>
+                                                    <li class="separator"></li>
+                                                    <li data-index="1" style="margin-top: 1px;" class="cal_tab">
+                                                        <a class="roomTab" data-index="1" activity="0" onclick="tab_click($(this).attr('data-index') , $(this) )">조감도</a>
+                                                    </li>
+                                                    <li class="separator"></li>
+                                                    <li data-index="2" style="margin-top: 1px;" class="cal_tab">
+                                                        <a class="roomTab" data-index="2" activity="0" onclick="tab_click($(this).attr('data-index') , $(this) )">월간전경</a>
+                                                    </li>
+                                                    <li class="separator"></li>
+                                                    <li data-index="3" style="margin-top: 1px;" class="cal_tab">
+                                                        <a class="roomTab" data-index="3" activity="0" onclick="tab_click($(this).attr('data-index') , $(this) )">주요공정</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <button class="btn_more fx-end item-center">
+                                                MORE
+                                                <img src="images/ico_add.png" alt="">
+                                            </button>
+                                        </div>
+                                        <div id="unit-photo-wrap" class="fx-between">
+                                            <div class="unit-photo-large-wrap">
+                                                <img src="images/photo_s01.png" class="photo" style="display: block;">
+                                                <img src="images/photo_s02.png" class="photo" style="display: none;">
+                                                <img src="images/photo_s03.png" class="photo" style="display: none;">
+                                                <img src="images/photo_s04.png" class="photo" style="display: none;">
+                                                <img src="images/photo_s05.png" class="photo" style="display: none;">
+                                                <img src="images/photo_s06.png" class="photo" style="display: none;">
+                                            </div>
+                                            <div class="unit-photo-large-wrap02">
+                                                <img src="images/photo_s01.png" class="photo" style="display: none;">
+                                                <img src="images/photo_s02.png" class="photo" style="display: block;">
+                                                <img src="images/photo_s03.png" class="photo" style="display: none;">
+                                                <img src="images/photo_s04.png" class="photo" style="display: none;">
+                                                <img src="images/photo_s05.png" class="photo" style="display: none;">
+                                                <img src="images/photo_s06.png" class="photo" style="display: none;">
+                                            </div>
+                                            <div class="unit-photo-thum-wrap">
+                                                <img class="thum active" src="images/photo_s01.png" onclick="currentSlide(1)">
+                                                <img class="thum" src="images/photo_s02.png" onclick="currentSlide(2)">
+                                                <img class="thum" src="images/photo_s03.png" onclick="currentSlide(3)">
+                                                <img class="thum" src="images/photo_s04.png" onclick="currentSlide(4)">
+                                                <img class="thum" src="images/photo_s05.png" onclick="currentSlide(5)">
+                                                <img class="thum" src="images/photo_s06.png" onclick="currentSlide(6)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="separator"></div>
+                                    <!-- 투입현황 -->
+                                    <div id="construction-costs" class="fx-between-col">
+                                        <div class="fx-between">
+                                            <div class="fx-between-col">
+                                                <div class="nation-box fx-between-col">
+                                                    <div class="nation-box-tit">전일</div>
+                                                    <div class="nation-box-data">
+                                                        <span>15.508</span>
+                                                    </div>
+                                                </div>
+                                                <div class="nation-box fx-between-col">
+                                                    <div class="nation-box-tit">금일</div>
+                                                    <div class="nation-box-data">
+                                                        <span>11.018</span>
+                                                    </div>
+                                                </div>
+                                                <div class="nation-box fx-between-col">
+                                                    <div class="nation-box-tit">누계</div>
+                                                    <div class="nation-box-data">
+                                                        <span title="10,517,930">10,517,930</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="fx-between-col">
+                                                <div class="fx-between">
+                                                    <div class="db-toggle fx-start item-center">
+                                                        <button class="toggle-button active" onclick="toggleTable('facility')">인력투입현황</button>
+                                                        <button class="toggle-button" onclick="toggleTable('monthly')">장비투입현황</button>
+                                                    </div>
+                                                    <button class="btn_more fx-end item-center">
+                                                        MORE
+                                                        <img src="images/ico_add.png" alt="">
+                                                    </button>
+                                                </div>
+                                                <div class="mainTabs_content">
+                                                    <div class="resc_top">
+                                                        <div class="iframe_area noborder" perh="90">
+                                                            <img src="images/인력투입현황.png" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="separator"></div>
+                                <!-- 프로젝트 캘린더 -->
+                                <div class="project_cal fx-between-col">
+                                    <div class="fx-between item-center">
+                                        <div class="cal_tab_btns">
+                                            <ul class="cal_tab_sub">
+                                                <li class="cal_tab cal_tab_active_left" data-index="0" style="margin-top: 1px;">
+                                                    <a class="cal_tab_active_right roomAll" data-index="0" onclick="tab_click($(this).attr('data-index') , $(this) )">전체</a>
+                                                </li>
+                                                <li class="separator"></li>
+                                                <li data-index="1" style="margin-top: 1px;" class="cal_tab">
+                                                    <a class="roomTab" data-index="1" activity="0" onclick="tab_click($(this).attr('data-index') , $(this) )">Maxwell실</a>
+                                                </li>
+                                                <li class="separator"></li>
+                                                <li data-index="2" style="margin-top: 1px;" class="cal_tab">
+                                                    <a class="roomTab" data-index="2" activity="0" onclick="tab_click($(this).attr('data-index') , $(this) )">에베레스트실</a>
+                                                </li>
+                                                <li class="separator"></li>
+                                                <li data-index="3" style="margin-top: 1px;" class="cal_tab">
+                                                    <a class="roomTab" data-index="3" activity="0" onclick="tab_click($(this).attr('data-index') , $(this) )">몽블랑실</a>
+                                                </li>
+                                                <li class="separator"></li>
+                                                <li data-index="4" style="margin-top: 1px;" class="cal_tab">
+                                                    <a class="roomTab" data-index="4" activity="0" onclick="tab_click($(this).attr('data-index') , $(this) )">킬리만자로실</a>
+                                                </li>
+                                                <li class="separator"></li>
+                                                <li data-index="5" style="margin-top: 1px;" class="cal_tab">
+                                                    <a class="roomTab" data-index="5" activity="0" onclick="tab_click($(this).attr('data-index') , $(this) )">매킨리실</a>
+                                                </li>
+                                                <li class="separator"></li>
+                                                <li data-index="6" style="margin-top: 1px;" class="cal_tab">
+                                                    <a class="roomTab" data-index="6" activity="0" onclick="tab_click($(this).attr('data-index') , $(this) )">Heaviside실</a>
+                                                </li>
+                                                <li class="separator"></li>
+                                                <li data-index="7" style="margin-top: 1px;" class="cal_tab">
+                                                    <a class="roomTab" data-index="7" activity="0" onclick="tab_click($(this).attr('data-index') , $(this) )">Fleming실</a>
+                                                </li>
+                                                <li class="separator"></li>
+                                                <li data-index="8" style="margin-top: 1px;" class="cal_tab">
+                                                <a class="roomTab" data-index="8" activity="0" onclick="tab_click($(this).attr('data-index') , $(this) )">창원화상회의실</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <button class="btn_more fx-end item-center">
+                                            MORE
+                                            <img src="images/ico_add.png" alt="">
+                                        </button>
+                                    </div>
+                                    <!-- 캘린더 영역 -->
+                                    <div class="cal_area">
+                                        캘린더 영역
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // 문서정보 QSE문서 팝업 열기/닫기 기능
+            const openBtn = document.querySelector('#inspection_unread_totalp');
+            const closeBtn = document.querySelector('#qse_close');
+            const popup = document.querySelector('#pj-docs-qse');
+
+            if (openBtn && closeBtn && popup) {
+                openBtn.addEventListener('click', () => {
+                    popup.style.display = 'flex';
+                });
+
+                closeBtn.addEventListener('click', () => {
+                    popup.style.display = 'none';
+                });
+            }
+            // .left_cont 토글 기능
+            const label = document.querySelector('.left_cont_label');
+            const leftCont = document.querySelector('.left_cont');
+            const unitPhotoWrap = document.querySelector('.unit-photo-large-wrap02');
+
+            if (label && leftCont) {
+                label.addEventListener('click', function () {
+                    const isHidden = leftCont.style.display === 'none' || window.getComputedStyle(leftCont).display === 'none';
+
+                    if (isHidden) {
+                        leftCont.style.display = 'flex';
+                        label.innerHTML = '&#9001;';
+                        if (unitPhotoWrap) {
+                            unitPhotoWrap.style.display = 'none';
+                        }
+                    } else {
+                        leftCont.style.display = 'none';
+                        label.innerHTML = '&#9002;';
+                        if (unitPhotoWrap) {
+                            unitPhotoWrap.style.display = 'block';
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
